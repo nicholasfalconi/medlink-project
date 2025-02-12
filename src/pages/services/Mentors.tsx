@@ -1,6 +1,7 @@
 
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
+import { ForMentors } from "@/components/sections/ForMentors";
 import { Roles } from "@/components/sections/Roles";
 
 const ServicesMentors = () => {
@@ -17,6 +18,7 @@ const ServicesMentors = () => {
           </p>
         </div>
       </section>
+      <ForMentors />
       <Roles />
       <Footer />
     </div>
