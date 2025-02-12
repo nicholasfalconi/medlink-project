@@ -1,57 +1,70 @@
 
+import { useEffect, useState } from "react";
+import { ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 
 export const Navigation = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="fixed top-0 w-full z-50 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          <div className="flex-shrink-0 flex items-center">
-            <img src="/lovable-uploads/f2b3323c-afa7-4803-8c54-e898263fe3af.png" alt="MedLink Logo" className="h-16 w-auto" />
-          </div>
-          <div className="hidden md:block">
-            <NavigationMenu>
-              <NavigationMenuList className="gap-8">
-                <NavigationMenuItem>
-                  <NavigationMenuLink href="/" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">
-                    Home
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuLink href="/about" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">
-                    About Us
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-gray-700 hover:text-gray-900">Services</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="w-[200px] p-2">
-                      <NavigationMenuLink href="/services/mentors" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">
-                        For Mentors
-                      </NavigationMenuLink>
-                      <NavigationMenuLink href="/services/mentees" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">
-                        For Mentees
-                      </NavigationMenuLink>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuLink href="/resources" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">
-                    Resources
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-          </div>
-        </div>
+    <header
+      className={`sticky top-0 z-50 w-full transition-all duration-200 ${
+        isScrolled ? "bg-white shadow-md" : "bg-transparent"
+      }`}
+    >
+      <div className="container max-w-7xl mx-auto px-4 flex h-24 items-center justify-between">
+        <Link to="/" className="flex items-center -ml-4">
+          <img
+            src="/lovable-uploads/f2b3323c-afa7-4803-8c54-e898263fe3af.png"
+            alt="MedLink Logo"
+            className="h-20 w-auto"
+          />
+        </Link>
+        <nav className="hidden md:flex gap-8 items-center">
+          <Link to="/" className="text-sm font-medium hover:text-[#007AFF] transition-colors">
+            Home
+          </Link>
+          <Link to="/about" className="text-sm font-medium hover:text-[#007AFF] transition-colors">
+            About Us
+          </Link>
+          <Collapsible open={isOpen} onOpenChange={setIsOpen} className="relative">
+            <CollapsibleTrigger className="text-sm font-medium hover:text-[#007AFF] transition-colors flex items-center gap-1">
+              Services <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+            </CollapsibleTrigger>
+            <CollapsibleContent className="absolute top-full left-0 w-48 bg-white rounded-md shadow-lg py-2 mt-2">
+              <Link 
+                to="/services/mentors" 
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#007AFF] transition-colors"
+              >
+                For Mentors
+              </Link>
+              <Link 
+                to="/services/mentees" 
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#007AFF] transition-colors"
+              >
+                For Mentees
+              </Link>
+            </CollapsibleContent>
+          </Collapsible>
+          <Link to="/resources" className="text-sm font-medium hover:text-[#007AFF] transition-colors">
+            Resources
+          </Link>
+        </nav>
       </div>
-    </nav>
+    </header>
   );
 };
