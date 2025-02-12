@@ -76,17 +76,6 @@ export const Roles = () => {
             </Card>
           </div>
         </div>
-
-        <div className="mt-16 max-w-3xl mx-auto">
-          <Card className="p-8 bg-gradient-to-r from-blue-50 to-white">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">
-              Creating Meaningful Connections
-            </h3>
-            <p className="text-gray-600 text-center">
-              At the core of our program is the belief that mentorship should be impactful and tailored to individual needs. Through communication, mutual respect, and shared goals, we aim to foster connections that help students take meaningful steps toward their dreams.
-            </p>
-          </Card>
-        </div>
       </div>
     </section>
   );
