@@ -1,7 +1,6 @@
 
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
-import { ForMentees } from "@/components/sections/ForMentees";
 import { Roles } from "@/components/sections/Roles";
 
 const ServicesMentees = () => {
@@ -18,7 +17,6 @@ const ServicesMentees = () => {
           </p>
         </div>
       </section>
-      <ForMentees />
       <Roles />
       <Footer />
     </div>
