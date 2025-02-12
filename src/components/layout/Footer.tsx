@@ -1,6 +1,4 @@
 
-import { Twitter, Linkedin, Instagram } from "lucide-react";
-
 export const Footer = () => {
   return (
     <footer className="bg-white text-gray-600 py-12">
@@ -21,18 +19,7 @@ export const Footer = () => {
           </div>
           <div>
             <h3 className="text-xl font-semibold text-blue-500 mb-4">Contact Us</h3>
-            <p className="mb-4">contact@medlinkproject.org</p>
-            <div className="flex space-x-4">
-              <a href="#" className="hover:text-gray-900 transition-colors">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="hover:text-gray-900 transition-colors">
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a href="#" className="hover:text-gray-900 transition-colors">
-                <Instagram className="h-5 w-5" />
-              </a>
-            </div>
+            <p>contact@medlinkproject.org</p>
           </div>
         </div>
         <div className="mt-12 pt-8 border-t border-gray-200 text-center">

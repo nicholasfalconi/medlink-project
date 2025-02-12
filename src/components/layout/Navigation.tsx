@@ -10,11 +10,11 @@ import {
 
 export const Navigation = () => {
   return (
-    <nav className="fixed top-0 w-full z-50 glass">
+    <nav className="fixed top-0 w-full z-50 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0 flex items-center">
-            <img src="/lovable-uploads/f2b3323c-afa7-4803-8c54-e898263fe3af.png" alt="MedLink Logo" className="h-12 w-auto" />
+            <img src="/lovable-uploads/f2b3323c-afa7-4803-8c54-e898263fe3af.png" alt="MedLink Logo" className="h-16 w-auto" />
           </div>
           <div className="hidden md:block">
             <NavigationMenu>
