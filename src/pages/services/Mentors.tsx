@@ -17,7 +17,7 @@ const ServicesMentors = () => {
           </p>
         </div>
       </section>
-      <Roles />
+      <Roles type="mentor" />
       <Footer />
     </div>
   );
