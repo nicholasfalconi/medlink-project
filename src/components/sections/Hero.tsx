@@ -1,5 +1,6 @@
 
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 export const Hero = () => {
   return (
@@ -24,15 +25,17 @@ export const Hero = () => {
             <Button 
               size="lg" 
               className="bg-[#007AFF] hover:bg-[#0A84FF] text-white"
+              asChild
             >
-              Apply Now
+              <Link to="/services/mentees">Apply Now</Link>
             </Button>
             <Button
               variant="outline"
               size="lg"
               className="bg-white/10 hover:bg-white/20 text-white border-white"
+              asChild
             >
-              Learn More
+              <Link to="/about">Learn More</Link>
             </Button>
           </div>
         </div>
