@@ -18,14 +18,14 @@ export const Navigation = () => {
           </div>
           <div className="hidden md:block">
             <NavigationMenu>
-              <NavigationMenuList>
+              <NavigationMenuList className="gap-8">
                 <NavigationMenuItem>
-                  <NavigationMenuLink href="/" className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                  <NavigationMenuLink href="/" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">
                     Home
                   </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuLink href="/about" className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                  <NavigationMenuLink href="/about" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">
                     About Us
                   </NavigationMenuLink>
                 </NavigationMenuItem>
@@ -43,7 +43,7 @@ export const Navigation = () => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuLink href="/resources" className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                  <NavigationMenuLink href="/resources" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">
                     Resources
                   </NavigationMenuLink>
                 </NavigationMenuItem>

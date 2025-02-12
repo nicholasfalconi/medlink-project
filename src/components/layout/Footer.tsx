@@ -1,40 +1,42 @@
 
+import { Twitter, Linkedin, Instagram } from "lucide-react";
+
 export const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+    <footer className="bg-white text-gray-600 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider">Program</h3>
-            <ul className="mt-4 space-y-4">
-              <li><a href="#about" className="text-gray-300 hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#services" className="text-gray-300 hover:text-white transition-colors">Services</a></li>
+            <h3 className="text-xl font-semibold text-blue-500 mb-4">The MedLink Project</h3>
+            <p className="text-gray-500">Supporting Tomorrow's Doctors, Today</p>
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold text-blue-500 mb-4">Quick Links</h3>
+            <ul className="space-y-2">
+              <li><a href="/about" className="hover:text-gray-900 transition-colors">About Us</a></li>
+              <li><a href="/services" className="hover:text-gray-900 transition-colors">Services</a></li>
+              <li><a href="/resources" className="hover:text-gray-900 transition-colors">Resources</a></li>
+              <li><a href="/faq" className="hover:text-gray-900 transition-colors">FAQs</a></li>
             </ul>
           </div>
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider">Resources</h3>
-            <ul className="mt-4 space-y-4">
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">MCAT Guide</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">CASPer Prep</a></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider">Support</h3>
-            <ul className="mt-4 space-y-4">
-              <li><a href="#faq" className="text-gray-300 hover:text-white transition-colors">FAQ</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Contact</a></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider">Connect</h3>
-            <ul className="mt-4 space-y-4">
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">LinkedIn</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Twitter</a></li>
-            </ul>
+            <h3 className="text-xl font-semibold text-blue-500 mb-4">Contact Us</h3>
+            <p className="mb-4">contact@medlinkproject.org</p>
+            <div className="flex space-x-4">
+              <a href="#" className="hover:text-gray-900 transition-colors">
+                <Twitter className="h-5 w-5" />
+              </a>
+              <a href="#" className="hover:text-gray-900 transition-colors">
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a href="#" className="hover:text-gray-900 transition-colors">
+                <Instagram className="h-5 w-5" />
+              </a>
+            </div>
           </div>
         </div>
-        <div className="mt-8 pt-8 border-t border-gray-800 text-center">
-          <p className="text-gray-400">&copy; 2024 The MedLink Project. All rights reserved.</p>
+        <div className="mt-12 pt-8 border-t border-gray-200 text-center">
+          <p>&copy; 2025 The MedLink Project. All rights reserved.</p>
         </div>
       </div>
     </footer>
