@@ -9,7 +9,7 @@ import {
 const faqs = [
   {
     question: "What is The MedLink Project?",
-    answer: "The MedLink Project is a mentorship initiative created by medical students to guide and support undergraduate students aspiring to pursue medicine. Our program connects mentees with medical student mentors and provides free resources on key topics like MCAT preparation, CASPer, medical school applications, and interviews.",
+    answer: "The MedLink Project is a mentorship initiative created by medical students to guide and support undergraduate students aspiring to pursue medicine. Our program connects mentees with medical student mentors and provides free resources on key topics like MCAT preparation, Casper, medical school applications, and interviews.",
   },
   {
     question: "How do I apply for mentorship?",
@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     question: "What happens if I'm not matched with a mentor right away?",
-    answer: "Due to high demand and limited mentor capacity, some mentees may not be matched immediately. In the meantime, you can access our extensive online resources, including preparation guides for CASPer, MCAT, medical school applications, and interviews, as well as recorded virtual events for additional guidance.",
+    answer: "Due to high demand and limited mentor capacity, some mentees may not be matched immediately. In the meantime, you can access our extensive online resources, including preparation guides for Casper, MCAT, medical school applications, and interviews, as well as recorded virtual events for additional guidance.",
   },
   {
     question: "Is the mentorship program free?",

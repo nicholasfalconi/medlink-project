@@ -24,8 +24,8 @@ const services = [
     icon: <ChartBar className="h-6 w-6 text-[#007AFF]" />,
   },
   {
-    title: "CASPer Preparation",
-    description: "Get ready for the CASPer test with practice scenarios and tips.",
+    title: "Casper Preparation",
+    description: "Get ready for the Casper test with practice scenarios and tips.",
     icon: <Calendar className="h-6 w-6 text-[#007AFF]" />,
   },
   {
