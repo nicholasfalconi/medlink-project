@@ -20,7 +20,7 @@ const ServicesMentors = () => {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4">
           <iframe
-            src="https://forms.gle/G6juVwc4hcTDV3aU9"
+            src="https://docs.google.com/forms/d/e/1FAIpQLSf5fYQnpuK2ZAj4qkF-uXyxR1L5BX0YyYmh_yGVFYAGX5B6zQ/viewform?embedded=true"
             className="w-full h-[800px] border-0"
             title="Mentor Application Form"
           />
