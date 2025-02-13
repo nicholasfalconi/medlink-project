@@ -5,7 +5,7 @@ import { FileText, GitBranch, Video } from "lucide-react";
 const steps = [
   {
     title: "Application Form",
-    description: "Complete our comprehensive application process",
+    description: "Complete our application process",
     icon: <FileText className="w-12 h-12 text-primary" />,
   },
   {
@@ -15,7 +15,7 @@ const steps = [
   },
   {
     title: "Virtual Meeting",
-    description: "Connect with your mentor through video calls",
+    description: "Connect with your mentor through email, phone or virtually",
     icon: <Video className="w-12 h-12 text-primary" />,
   },
 ];
