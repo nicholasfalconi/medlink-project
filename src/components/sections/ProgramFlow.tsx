@@ -43,6 +43,9 @@ export const ProgramFlow = () => {
           <p>
             Beyond these resources, we offer a library of recorded virtual events and workshops covering critical topics. Our program meets students wherever they are in their journey, providing the tools, knowledge, and confidence needed to pursue their dreams of becoming medical professionals.
           </p>
+          <p>
+            To access these resources please contact <a href="mailto:themedlinkproject@gmail.com" className="text-blue-500 hover:text-blue-600">themedlinkproject@gmail.com</a>
+          </p>
         </div>
       </div>
     </section>
