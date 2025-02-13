@@ -2,6 +2,7 @@
 import { Navigation } from "@/components/layout/Navigation";
 import { About as AboutSection } from "@/components/sections/About";
 import { ProgramFlow } from "@/components/sections/ProgramFlow";
+import { Footer } from "@/components/layout/Footer";
 
 const About = () => {
   return (
@@ -9,6 +10,7 @@ const About = () => {
       <Navigation />
       <AboutSection />
       <ProgramFlow />
+      <Footer />
     </div>
   );
 };
