@@ -63,7 +63,7 @@ export const Navigation = () => {
       <div className="container max-w-7xl mx-auto px-4 flex h-24 items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
           <img
-            src="/images/medlink-logo.png"
+            src="/lovable-uploads/295f508c-d6ac-4b69-985a-d18e2020c21c.png"
             alt="MedLink Logo"
             className="h-12 w-auto"
           />

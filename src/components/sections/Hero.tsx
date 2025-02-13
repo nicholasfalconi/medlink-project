@@ -7,7 +7,7 @@ export const Hero = () => {
     <section className="relative min-h-[90vh] flex items-center">
       <div className="absolute inset-0 z-0">
         <img 
-          src="/images/hero-medical-consultation.png" 
+          src="/lovable-uploads/20588af6-973b-46a1-b5c4-4d483ac55a28.png" 
           alt="Medical consultation illustration"
           className="w-full h-full object-cover object-right"
         />
