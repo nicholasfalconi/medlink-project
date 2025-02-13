@@ -12,13 +12,13 @@ const Resources = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center">
             <div className="inline-block p-4 bg-blue-100 rounded-full mb-6">
-              <Clock className="h-8 w-8 text-[#007AFF]" />
+              <BookOpen className="h-8 w-8 text-[#007AFF]" />
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-              Resources <span className="text-[#007AFF]">Coming Soon</span>
+              Medical School <span className="text-[#007AFF]">Resources</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-12">
-              We're working hard to create comprehensive resources to support your medical school journey. Stay tuned for updates!
+              Access our comprehensive collection of resources designed to support your medical school journey
             </p>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
@@ -43,18 +43,21 @@ const Resources = () => {
 
             <div className="bg-white p-8 rounded-xl shadow-md max-w-md mx-auto">
               <Mail className="h-8 w-8 text-[#007AFF] mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-4">Get Notified</h3>
+              <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
               <p className="text-gray-600 mb-6">
-                Be the first to know when our resources section launches
+                For more information about our resources, please contact us
               </p>
-              <div className="flex gap-4 max-w-sm mx-auto">
+              <a 
+                href="mailto:themedlinkproject@gmail.com"
+                className="inline-block w-full"
+              >
                 <Button 
                   size="lg"
-                  className="bg-[#007AFF] hover:bg-[#0A84FF] text-white flex-1"
+                  className="bg-[#007AFF] hover:bg-[#0A84FF] text-white w-full"
                 >
-                  Join Waitlist
+                  Email Us
                 </Button>
-              </div>
+              </a>
             </div>
           </div>
         </div>
