@@ -3,18 +3,18 @@ import { Card } from "@/components/ui/card";
 
 const timeline = [
   {
-    year: "2019",
+    year: "2023",
     title: "Founded",
     description: "The MedLink Project was established",
   },
   {
-    year: "2020",
+    year: "2024",
     title: "First Cohort",
     description: "Successfully launched our first mentorship program",
   },
   {
-    year: "2023",
-    title: "1000+ Mentees",
+    year: "2025",
+    title: "200+ Mentees",
     description: "Reached a major milestone in student support",
   },
 ];
