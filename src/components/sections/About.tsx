@@ -1,9 +1,8 @@
 
 export const About = () => {
   const stats = [
-    { value: "500+", label: "Students Mentored" },
-    { value: "200+", label: "Medical Student Mentors" },
-    { value: "95%", label: "Success Rate" },
+    { value: "200+", label: "Students Mentored" },
+    { value: "50+", label: "Medical Student Mentors" },
     { value: "100%", label: "Free Access" }
   ];
 
@@ -54,7 +53,7 @@ export const About = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 bg-white rounded-2xl shadow-lg p-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 bg-white rounded-2xl shadow-lg p-8">
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-[#007AFF]">{stat.value}</div>
