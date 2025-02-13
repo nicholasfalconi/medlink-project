@@ -23,14 +23,14 @@ export const Navigation = () => {
 
   const MenuItems = () => (
     <>
-      <Link to="/" className="text-sm font-medium hover:text-[#007AFF] transition-colors">
+      <Link to="/" className="text-sm font-medium tracking-wide hover:text-[#007AFF] transition-colors">
         Home
       </Link>
-      <Link to="/about" className="text-sm font-medium hover:text-[#007AFF] transition-colors">
+      <Link to="/about" className="text-sm font-medium tracking-wide hover:text-[#007AFF] transition-colors">
         About Us
       </Link>
       <Collapsible open={isOpen} onOpenChange={setIsOpen} className="relative">
-        <CollapsibleTrigger className="text-sm font-medium hover:text-[#007AFF] transition-colors flex items-center gap-1">
+        <CollapsibleTrigger className="text-sm font-medium tracking-wide hover:text-[#007AFF] transition-colors flex items-center gap-1">
           Services <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
         </CollapsibleTrigger>
         <CollapsibleContent className="absolute top-full left-0 w-48 bg-white rounded-md shadow-lg py-2 mt-2">
@@ -48,7 +48,7 @@ export const Navigation = () => {
           </Link>
         </CollapsibleContent>
       </Collapsible>
-      <Link to="/resources" className="text-sm font-medium hover:text-[#007AFF] transition-colors">
+      <Link to="/resources" className="text-sm font-medium tracking-wide hover:text-[#007AFF] transition-colors">
         Resources
       </Link>
     </>
@@ -67,7 +67,7 @@ export const Navigation = () => {
             alt="MedLink Logo"
             className="h-12 w-auto"
           />
-          <span className="text-xl font-semibold text-gray-900">The MedLink Project</span>
+          <span className="text-xl font-semibold tracking-tight text-gray-900">The MedLink Project</span>
         </Link>
         
         {/* Desktop Navigation */}
