@@ -3,11 +3,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const ProgramFlow = () => {
   const resources = [
-    { title: "CASPer Test Preparation", description: "Tips, strategies, and sample scenarios for this critical component" },
+    { title: "Casper Test Preparation", description: "Tips, strategies, and sample scenarios" },
     { title: "MCAT Guidance", description: "Comprehensive advice on study plans and accessing resources" },
-    { title: "Application Help", description: "Step-by-step guides on crafting compelling applications" },
-    { title: "Interview Prep", description: "Insights into different interview formats and techniques" },
-    { title: "Grad School Applications", description: "Advice on finding the right fit and excelling in applications" }
+    { title: "Interview Prep", description: "Insights into different interview formats and techniques" }
   ];
 
   return (
