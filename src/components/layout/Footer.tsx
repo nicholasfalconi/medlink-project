@@ -19,7 +19,7 @@ export const Footer = () => {
           </div>
           <div>
             <h3 className="text-xl font-semibold text-blue-500 mb-4">Contact Us</h3>
-            <p>contact@medlinkproject.org</p>
+            <p>themedlinkproject@gmail.com</p>
           </div>
         </div>
         <div className="mt-12 pt-8 border-t border-gray-200 text-center">
