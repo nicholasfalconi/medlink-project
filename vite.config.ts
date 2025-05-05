@@ -24,6 +24,12 @@ export default defineConfig(({ mode }) => ({
     sourcemap: true,
     minify: 'terser',
     cssMinify: true,
+    terserOptions: {
+      compress: {
+        drop_console: false,
+        drop_debugger: true
+      }
+    }
   },
   optimizeDeps: {
     include: ['react', 'react-dom', 'react-router-dom'],
