@@ -19,7 +19,7 @@ if [ -z "$(git config --get remote.origin.url)" ]; then
   git checkout -b main
   git add -A
   git commit -m 'deploy'
-  git remote add origin https://github.com/nicholasfalconi/medlink-project-live.git
+  git remote add origin https://github.com/nicholasfalconi/medlink-project.git
 else
   git add -A
   git commit -m 'deploy'

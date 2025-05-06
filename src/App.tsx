@@ -14,7 +14,7 @@ import Resources from "./pages/Resources";
 const queryClient = new QueryClient();
 
 // Get the base URL from the environment or use default for GitHub Pages
-const baseUrl = import.meta.env.MODE === 'production' ? '/medlink-project-live/' : '/';
+const baseUrl = import.meta.env.MODE === 'production' ? '/medlink-project/' : '/';
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
