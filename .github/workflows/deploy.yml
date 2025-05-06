@@ -34,4 +34,4 @@ jobs:
         with:
           branch: gh-pages         # target branch
           folder: dist             # directory to publish
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_PAGES_TOKEN }}
