@@ -1,8 +1,9 @@
 {
-  "name": "vite_react_shadcn_ts",
+  "name": "medlink-project",
+  "version": "1.0.0",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
+  "homepage": "https://nicholasfalconi.github.io/medlink-project",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -82,3 +83,4 @@
     "vite": "^5.4.1"
   }
 }
+
