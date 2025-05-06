@@ -2,20 +2,26 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   workflow_dispatch:
 
 permissions:
-  contents: write     # for checking out
-  pages: write        # for publishing
-  id-token: write     # (required by deploy-pages@v1)
+  contents: write   # for checkout
+  pages: write      # for publishing
+  id-token: write   # required by deploy-pages action
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    # Apply to all run steps in this job
+    defaults:
+      run:
+        working-directory: medlink-project-main
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -32,6 +38,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages         # target branch
-          folder: dist             # directory to publish
+          branch: gh-pages
+          folder: dist
           token: ${{ secrets.GH_PAGES_TOKEN }}
