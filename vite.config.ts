@@ -4,13 +4,13 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  // set base for Github Pages
-  base: mode === "production" ? "/medlink-project/" : "/",
+  // on a custom domain, assets are served from the root
+  base: '/',
   server: {
     host: "::",
     port: 8080,
     hmr: {
-      overlay: true, // you can set to false to disable the error overlay
+      overlay: true, // set to false to disable the error overlay
     },
   },
   plugins: [
@@ -19,7 +19,7 @@ export default defineConfig(({ mode }) => ({
   ],
   resolve: {
     alias: {
-      // both @/ and ~/ will point at src/
+      // both @/ and ~/ point to src/
       "@": path.resolve(__dirname, "src"),
       "~": path.resolve(__dirname, "src"),
     },
@@ -34,6 +34,8 @@ export default defineConfig(({ mode }) => ({
         drop_debugger: true,
       },
     },
+    // optionally customize assets directory
+    // assetsDir: 'assets',
   },
   optimizeDeps: {
     include: ["react", "react-dom", "react-router-dom"],
