@@ -1,19 +1,22 @@
-
 #!/usr/bin/env sh
-
-# abort on errors
 set -e
 
-# build
+# 1) build
 npm run build
 
-# navigate into the build output directory
+# 2) copy CNAME (and any other root-level static assets)
+cp CNAME dist/CNAME
+# If you have favicon or og-image, do likewise:
+# cp favicon.ico dist/favicon.ico
+# cp og-image.png dist/og-image.png
+
+# 3) go into the build output directory
 cd dist
 
-# create a .nojekyll file to bypass GitHub Pages' default behavior
+# 4) ensure .nojekyll so pages with dots (e.g. js.map) work
 touch .nojekyll
 
-# initialize git repository if not already present
+# 5) commit to gh-pages
 if [ -z "$(git config --get remote.origin.url)" ]; then
   git init
   git checkout -b main
@@ -22,10 +25,11 @@ if [ -z "$(git config --get remote.origin.url)" ]; then
   git remote add origin https://github.com/nicholasfalconi/medlink-project.git
 else
   git add -A
-  git commit -m 'deploy'
+  git commit -m 'deploy' || true
 fi
 
-# push to the gh-pages branch
+# 6) force-push to gh-pages branch
 git push -f origin main:gh-pages
 
+# 7) back to root
 cd -
