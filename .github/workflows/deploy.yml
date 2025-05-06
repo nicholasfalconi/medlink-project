@@ -12,7 +12,7 @@ permissions:
   id-token: write   # required by the deploy action
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -31,9 +31,22 @@ jobs:
       - name: Build for production
         run: npm run build
 
+      # --- NEW STEPS ---
+      - name: Copy CNAME & static assets into dist
+        run: |
+          cp CNAME dist/CNAME
+          # If you have other files you need in root (favicon, robots.txt, etc):
+          # cp favicon.ico dist/favicon.ico
+          # cp robots.txt dist/robots.txt
+
+      - name: Ensure no Jekyll processing
+        run: touch dist/.nojekyll
+      # ---------------
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages      # target branch
-          folder: dist          # your Vite output folder at repo root
+          folder: dist          # your Vite output folder
+          cname: www.themedlinkproject.com
           token: ${{ secrets.GITHUB_TOKEN }}
