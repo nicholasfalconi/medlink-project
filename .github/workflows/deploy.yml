@@ -33,3 +33,4 @@ jobs:
         with:
           folder: dist
           branch: gh-pages
+          repository-name: nicholasfalconi/medlink-project
