@@ -2,22 +2,18 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
-  contents: write   # for checkout
-  pages: write      # for publishing
-  id-token: write   # required by deploy-pages action
+  contents: write    # needed for checkout
+  pages: write       # needed to publish
+  id-token: write    # required by the deploy action
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    # Apply to all run steps in this job
-    defaults:
-      run:
-        working-directory: medlink-project-main
 
     steps:
       - name: Checkout repository
@@ -32,12 +28,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build the site
+      - name: Build for production
         run: npm run build
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages
-          folder: dist
+          branch: gh-pages    # target branch
+          folder: dist        # your Vite output folder
           token: ${{ secrets.GH_PAGES_TOKEN }}
