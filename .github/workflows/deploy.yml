@@ -7,9 +7,9 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write    # needed for checkout
-  pages: write       # needed to publish
-  id-token: write    # required by the deploy action
+  contents: write   # allows checkout
+  pages: write      # allows publishing Pages
+  id-token: write   # required by the deploy action
 
 jobs:
   build:
@@ -34,6 +34,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages    # target branch
-          folder: dist        # your Vite output folder
-          token: ${{ secrets.GH_PAGES_TOKEN }}
+          branch: gh-pages       # target branch
+          folder: dist           # your Vite output folder
+          token: ${{ secrets.GITHUB_TOKEN }}
