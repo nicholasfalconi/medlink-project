@@ -13,12 +13,15 @@ import Resources from "./pages/Resources";
 
 const queryClient = new QueryClient();
 
+// Get the base URL from the environment or use default for GitHub Pages
+const baseUrl = import.meta.env.MODE === 'production' ? '/medlink-project-live/' : '/';
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename={baseUrl}>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
