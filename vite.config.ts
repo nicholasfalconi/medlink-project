@@ -1,39 +1,41 @@
-
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-import componentTagger from "lovable-tagger";
+import { componentTagger } from "lovable-tagger";
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: mode === 'production' ? '/medlink-project/' : '/',
+  // set base for Github Pages
+  base: mode === "production" ? "/medlink-project/" : "/",
   server: {
     host: "::",
     port: 8080,
+    hmr: {
+      overlay: true, // you can set to false to disable the error overlay
+    },
   },
   plugins: [
-    react(),
     react(),
     componentTagger(),
   ],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      // both @/ and ~/ will point at src/
+      "@": path.resolve(__dirname, "src"),
+      "~": path.resolve(__dirname, "src"),
     },
   },
   build: {
-    sourcemap: true,
-    minify: 'terser',
+    outDir: "dist",
+    minify: "terser",
     cssMinify: true,
     terserOptions: {
       compress: {
         drop_console: false,
-        drop_debugger: true
-      }
+        drop_debugger: true,
+      },
     },
-    outDir: 'dist'
   },
   optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom'],
+    include: ["react", "react-dom", "react-router-dom"],
   },
 }));
