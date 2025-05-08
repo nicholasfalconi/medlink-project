@@ -1,3 +1,4 @@
+
 name: Deploy to GitHub Pages
 
 on:
@@ -34,17 +35,12 @@ jobs:
       - name: Copy CNAME & static assets into dist
         run: |
           cp CNAME dist/CNAME
-          # cp favicon.ico dist/favicon.ico   # if needed
-          # cp robots.txt dist/robots.txt     # if needed
-
-      - name: Ensure no Jekyll processing
-        run: touch dist/.nojekyll
+          touch dist/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages     # the branch to push to
-          folder: dist         # build output folder
-          clean: true          # remove existing files first
+          branch: gh-pages
+          folder: dist
+          clean: true
           token: ${{ secrets.GITHUB_TOKEN }}
-          # commit-message: "ci: deploy site"   # optional custom commit message

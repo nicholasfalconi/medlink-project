@@ -1,3 +1,4 @@
+
 #!/usr/bin/env sh
 set -e
 
@@ -6,9 +7,6 @@ npm run build
 
 # 2) copy CNAME (and any other root-level static assets)
 cp CNAME dist/CNAME
-# If you have favicon or og-image, do likewise:
-# cp favicon.ico dist/favicon.ico
-# cp og-image.png dist/og-image.png
 
 # 3) go into the build output directory
 cd dist
