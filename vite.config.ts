@@ -5,7 +5,7 @@ import path from "path";
 
 export default defineConfig(({ mode }) => ({
   // Using relative path for GitHub Pages deployment
-  base: mode === 'production' ? '/medlink-project/' : '/',
+  base: '/',
   server: {
     host: "::",
     port: 8080,
