@@ -152,7 +152,7 @@ export const Team = () => {
                   />
                 </div>
               </CardHeader>
-              <CardContent>
+              <CardContent className={openMap[idx] ? "" : "hidden"}>
                 <p className="text-sm leading-6 text-muted-foreground">{member.bio}</p>
                 {member.responsibilities && member.responsibilities.length > 0 && (
                   <div className="mt-4">
