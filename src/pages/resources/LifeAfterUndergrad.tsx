@@ -98,106 +98,117 @@ const LifeAfterUndergrad = () => {
             </p>
           </header>
 
-          {/* Fork in the Road */}
-          <section aria-label="Fork in the road" className="relative mt-10 mb-14">
-            <div className="relative max-w-5xl mx-auto pt-16">
-              {/* Fork lines (desktop) */}
-              <div className="hidden md:block absolute left-1/2 top-0 -translate-x-1/2">
-                <div className="h-10 w-px bg-border mx-auto" />
-                <div className="h-3 w-3 rounded-full bg-background border border-border mx-auto" />
-                <div className="mt-2 h-px bg-border w-[820px] -ml-[410px]" />
-                <div className="flex justify-between w-[820px] -ml-[410px]">
-                  {[0,1,2].map((i) => (
-                    <div key={i} className="-mt-2 h-3 w-3 rounded-full bg-background border border-border" />
-                  ))}
-                </div>
-              </div>
-
-              {/* Cards */}
+          {/* Fork in the Road cards for quick nav */}
+          <section aria-label="Fork in the road" className="relative mt-8 mb-10">
+            <div className="relative max-w-5xl mx-auto">
+              {/* fork baseline (decorative) */}
+              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 -top-4 w-[820px] h-px bg-muted" aria-hidden="true" />
               <div className="grid md:grid-cols-3 gap-6">
                 <a href="#grad-school" className="rounded-xl border bg-card p-6 hover:shadow-lg transition-shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40">
                   <GraduationCap className="h-8 w-8 text-primary mb-3" />
                   <h3 className="text-lg font-semibold text-foreground">Graduate school</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">Master’s 1–3 years (course or research). PhD 3–7 years.</p>
+                  <p className="mt-2 text-sm text-muted-foreground">Master’s 1–3 years; PhD 3–7 years.</p>
                 </a>
                 <a href="#paid-work" className="rounded-xl border bg-card p-6 hover:shadow-lg transition-shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40">
                   <Briefcase className="h-8 w-8 text-primary mb-3" />
                   <h3 className="text-lg font-semibold text-foreground">Paid Work</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">Build income and experience; refine resume and cover letters.</p>
+                  <p className="mt-2 text-sm text-muted-foreground">Build income and experience.</p>
                 </a>
                 <a href="#gap-year" className="rounded-xl border bg-card p-6 hover:shadow-lg transition-shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40">
                   <Compass className="h-8 w-8 text-primary mb-3" />
                   <h3 className="text-lg font-semibold text-foreground">Gap Year</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">Explore interests, volunteer, and invest in personal growth.</p>
+                  <p className="mt-2 text-sm text-muted-foreground">Explore, volunteer, grow.</p>
                 </a>
               </div>
             </div>
           </section>
 
-          {/* Overview + Tips */}
+          {/* Overview */}
           <section id="overview" className="mb-12">
             <div className="grid md:grid-cols-2 gap-6 items-start">
               <article className="rounded-xl border bg-card p-6">
                 <h2 className="text-xl font-semibold text-foreground">Finding structure after graduation</h2>
                 <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                  Freedom without a plan can lead to paralysis or overcommitment. Pick 2–3 priorities—MCAT improvement, research, income—and scaffold your time with realistic tasks and timelines.
+                  After graduation, the sudden freedom can feel liberating but often leads to a lack of structure. Some people become paralyzed by endless possibilities while others overcommit. Reflect on your goals—improving MCAT scores, pursuing research, or earning income—and scaffold your time with realistic tasks and timelines to stay accountable.
                 </p>
               </article>
               <aside className="rounded-xl border bg-card p-6">
-                <h3 className="text-base font-semibold text-foreground">Quick tips</h3>
+                <h3 className="text-base font-semibold text-foreground">Tips for momentum</h3>
                 <ul className="mt-3 list-disc pl-5 text-sm text-muted-foreground space-y-2">
                   <li>Create a 90-day plan with weekly checkpoints.</li>
-                  <li>Batch similar tasks (applications, studying, outreach).</li>
-                  <li>Set accountability with mentors or peers.</li>
+                  <li>Pick 2–3 priorities and protect time for them.</li>
+                  <li>Schedule accountability with peers or mentors.</li>
                 </ul>
               </aside>
             </div>
           </section>
 
-          {/* Path details */}
-          <section id="grad-school" className="mb-10">
-            <h2 className="text-2xl font-semibold text-foreground">Graduate school</h2>
-            <ul className="mt-3 list-disc pl-5 text-sm text-muted-foreground space-y-1">
-              <li>Master’s Programs: 1–3 years (research or course-based)</li>
-              <li>PhD: 3–7 years (typically 4–5)</li>
-            </ul>
-            <div className="mt-4 text-sm text-muted-foreground">
-              <p className="font-medium text-foreground">Considerations</p>
-              <ul className="mt-2 list-disc pl-5 space-y-1">
-                <li>Exit opportunities and supervisor fit</li>
-                <li>Funding/stipend and cost of living</li>
-              </ul>
-            </div>
-          </section>
+          {/* Connected path sections */}
+          <section aria-label="Connected paths" className="relative">
+            {/* vertical path line */}
+            <div className="absolute left-3 md:left-6 top-0 bottom-0 w-px bg-muted" aria-hidden="true" />
 
-          <section id="paid-work" className="mb-10">
-            <h2 className="text-2xl font-semibold text-foreground">Paid Work</h2>
-            <p className="mt-3 text-sm text-muted-foreground">Great for income and real-world experience.</p>
-            <ul className="mt-2 list-disc pl-5 text-sm text-muted-foreground space-y-1">
-              <li>Competitive market—polish resume and cover letters</li>
-              <li>Expect patience and persistence to land roles</li>
-            </ul>
-            <div className="mt-4 text-sm text-muted-foreground">
-              <p className="font-medium text-foreground">Common employers</p>
-              <ul className="mt-2 list-disc pl-5 space-y-1">
-                <li>Advocacy organizations (e.g., mental health, health equity)</li>
-                <li>Biotech and pharma (sales, QC, R&amp;D)</li>
-                <li>Consulting</li>
+            {/* Graduate School */}
+            <section id="grad-school" className="relative pl-10 md:pl-16 py-8">
+              <span className="absolute left-2 md:left-[18px] top-6 h-3 w-3 rounded-full bg-background border shadow" aria-hidden="true" />
+              <h2 className="text-2xl font-semibold text-foreground flex items-center gap-2">
+                <GraduationCap className="h-6 w-6 text-primary" /> Graduate school
+              </h2>
+              <ul className="mt-3 list-disc pl-5 text-sm text-muted-foreground space-y-1">
+                <li>Master’s Programs: 1–3 years (research or course-based)</li>
+                <li>PhD: 3–7 years (typically 4–5)</li>
               </ul>
-            </div>
-          </section>
+              <div className="mt-4 text-sm text-muted-foreground">
+                <p className="font-medium text-foreground">Other important considerations</p>
+                <ul className="mt-2 list-disc pl-5 space-y-1">
+                  <li>Exit opportunities</li>
+                  <li>Identify a supervisor before applying?</li>
+                  <li>Funding/stipend and cost of living</li>
+                </ul>
+              </div>
+            </section>
 
-          <section id="gap-year" className="mb-12">
-            <h2 className="text-2xl font-semibold text-foreground">Gap Year</h2>
-            <ul className="mt-3 list-disc pl-5 text-sm text-muted-foreground space-y-1">
-              <li>Flexibility to explore interests</li>
-              <li>Balance freedom with purpose</li>
-              <li>Volunteering to build skills and connections</li>
-            </ul>
+            {/* Paid Work */}
+            <section id="paid-work" className="relative pl-10 md:pl-16 py-8">
+              <span className="absolute left-2 md:left-[18px] top-6 h-3 w-3 rounded-full bg-background border shadow" aria-hidden="true" />
+              <h2 className="text-2xl font-semibold text-foreground flex items-center gap-2">
+                <Briefcase className="h-6 w-6 text-primary" /> Paid Work
+              </h2>
+              <p className="mt-3 text-sm text-muted-foreground">Good for those seeking income and real-world experience.</p>
+              <ul className="mt-2 list-disc pl-5 text-sm text-muted-foreground space-y-1">
+                <li>Competitive market—refine resume and cover letters</li>
+                <li>Expect patience and persistence to land roles</li>
+              </ul>
+              <div className="mt-4 text-sm text-muted-foreground">
+                <p className="font-medium text-foreground">Important considerations</p>
+                <ul className="mt-2 list-disc pl-5 space-y-1">
+                  <li>Reflect on values: mobility, culture, work–life balance</li>
+                </ul>
+                <p className="font-medium text-foreground mt-3">Common employers</p>
+                <ul className="mt-2 list-disc pl-5 space-y-1">
+                  <li>Advocacy organizations (e.g., mental health, health equity)</li>
+                  <li>Biotech and pharmaceutical companies (sales, QC, R&amp;D)</li>
+                  <li>Consulting</li>
+                </ul>
+              </div>
+            </section>
+
+            {/* Gap Year */}
+            <section id="gap-year" className="relative pl-10 md:pl-16 py-8">
+              <span className="absolute left-2 md:left-[18px] top-6 h-3 w-3 rounded-full bg-background border shadow" aria-hidden="true" />
+              <h2 className="text-2xl font-semibold text-foreground flex items-center gap-2">
+                <Compass className="h-6 w-6 text-primary" /> Gap Year
+              </h2>
+              <ul className="mt-3 list-disc pl-5 text-sm text-muted-foreground space-y-1">
+                <li>Good for improvising while seeking the right job or program</li>
+                <li>Use time intentionally to avoid drift; focus on yourself</li>
+                <li>Volunteering builds skills, connections, and perspective</li>
+              </ul>
+            </section>
           </section>
 
           {/* Programs table (kept) */}
-          <section id="programs" className="mb-12">
+          <section id="programs" className="mt-6 mb-12">
             <h2 className="text-2xl font-semibold text-foreground text-center">Curated Canadian programs</h2>
             <p className="text-sm text-muted-foreground mt-2 text-center">Note: This guide is not comprehensive; always perform your own research. *Most internships are paid.</p>
             <div className="mt-6 overflow-x-auto">
