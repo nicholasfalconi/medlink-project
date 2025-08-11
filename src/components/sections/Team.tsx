@@ -76,8 +76,8 @@ export const Team = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
           {teamMembers.map((member, idx) => (
             <Card key={idx} className="border bg-card">
-              <CardHeader className="flex flex-row items-center gap-4">
-                <Avatar>
+              <CardHeader className="flex flex-col items-center gap-4 text-center">
+                <Avatar className="h-24 w-24">
                   {member.image ? (
                     <AvatarImage src={member.image} alt={`MedLink Project team member headshot`} />
                   ) : (
@@ -100,9 +100,6 @@ export const Team = () => {
           ))}
         </div>
 
-        <div className="mt-8 text-center text-sm text-muted-foreground">
-          Replace the placeholder names and bios with the real team details from your live site.
-        </div>
 
         <script
           type="application/ld+json"
