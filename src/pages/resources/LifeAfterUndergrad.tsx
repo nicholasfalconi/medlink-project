@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
+import ProgramsTable from "@/components/resources/ProgramsTable";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { GraduationCap, Briefcase, Compass } from "lucide-react";
 interface Program {
@@ -318,50 +319,18 @@ const LifeAfterUndergrad = () => {
         <section id="programs" className="bg-background">
           <div className="section-padding">
             <div className="max-w-7xl mx-auto px-4">
-              {/* 3) Curated programs table */}
-              <h2 className="text-2xl font-semibold text-foreground text-center">Curated Canadian programs</h2>
-              <p className="text-sm text-muted-foreground mt-2 text-center">Note: This guide is not comprehensive; always perform your own research. *Most internships are paid.</p>
-              <div className="mt-6 overflow-x-auto">
-                <table className="w-full text-left border-collapse">
-                  <thead>
-                    <tr className="border-b">
-                      <th className="py-3 pr-4">Program</th>
-                      <th className="py-3 pr-4">Degree</th>
-                      <th className="py-3 pr-4">School</th>
-                      <th className="py-3 pr-4">Length</th>
-                      <th className="py-3 pr-4">Structure</th>
-                      <th className="py-3 pr-4">Link</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {programs.map((p, i) => (
-                      <tr key={i} className="border-b hover:bg-muted/30">
-                        <td className="py-3 pr-4 text-foreground">{p.program}</td>
-                        <td className="py-3 pr-4 text-muted-foreground">{p.degree}</td>
-                        <td className="py-3 pr-4 text-muted-foreground">{p.school}</td>
-                        <td className="py-3 pr-4 text-muted-foreground">{p.length}</td>
-                        <td className="py-3 pr-4 text-muted-foreground">{p.structure}</td>
-                        <td className="py-3 pr-4">
-                          {p.link ? (
-                            <a className="text-primary underline" href={p.link} target="_blank" rel="noopener noreferrer">
-                              Visit
-                            </a>
-                          ) : (
-                            <span className="text-muted-foreground">-</span>
-                          )}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+{/* 3) Curated programs table */}
+<h2 className="text-2xl font-semibold text-foreground text-center">Curated Canadian programs</h2>
+<p className="text-sm text-muted-foreground mt-2 text-center">Note: This guide is not comprehensive; always perform your own research. *Most internships are paid.</p>
 
-              <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                  __html: JSON.stringify(jsonLd),
-                }}
-              />
+<ProgramsTable programs={programs} />
+
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify(jsonLd),
+  }}
+/>
             </div>
           </div>
         </section>
