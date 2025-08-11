@@ -47,7 +47,7 @@ const programs: Program[] = [
 
 const LifeAfterUndergrad = () => {
   useEffect(() => {
-    document.title = "Planning for Life after Undergrad | MedLink Resources";
+    document.title = "Life after undergrad | MedLink Resources";
     const meta = document.querySelector('meta[name="description"]') || document.createElement('meta');
     meta.setAttribute('name', 'description');
     meta.setAttribute('content', 'Guidance for life after undergrad: gap years, grad school paths, paid work options, and curated Canadian programs.');
@@ -62,13 +62,13 @@ const LifeAfterUndergrad = () => {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "Planning for Life after undergrad",
+    headline: "Life after undergrad",
     description: "Options after graduation: grad school, paid work, or gap year—plus curated program list.",
     author: { "@type": "Organization", name: "The MedLink Project" },
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+    <div className="min-h-screen bg-white">
       <Navigation />
 
       <main className="section-padding">
@@ -92,12 +92,12 @@ const LifeAfterUndergrad = () => {
 
           {/* Title */}
           <header className="mt-6 text-center">
-            <h1 className="text-3xl md:text-5xl font-bold text-foreground">Planning for Life after undergrad</h1>
+            <h1 className="text-3xl md:text-5xl font-bold text-foreground">Life after undergrad</h1>
           </header>
 
-          {/* 1) Intro section (first) */}
+          {/* 1) Intro section (first, no card background) */}
           <section className="mt-8 mb-10">
-            <article className="rounded-xl border bg-card p-6 md:p-8 max-w-4xl mx-auto">
+            <div className="max-w-4xl mx-auto">
               <p className="text-sm md:text-base leading-7 text-muted-foreground">
                 Applying to medical school is challenging, and facing rejection can leave you uncertain about next steps, whether that's exploring gap years, graduate programs, or alternative career paths in healthcare and industry.
               </p>
@@ -107,7 +107,7 @@ const LifeAfterUndergrad = () => {
               <p className="mt-4 text-sm md:text-base leading-7 text-muted-foreground">
                 We've identified three common paths that premeds tend to take after graduation if they don't get into medical school.
               </p>
-            </article>
+            </div>
           </section>
 
           {/* 2) Cards for the three paths */}
@@ -175,8 +175,8 @@ const LifeAfterUndergrad = () => {
             </div>
           </section>
 
-          {/* 3) Curated programs table (unchanged) */}
-          <section id="programs" className="mb-12">
+          {/* 3) Curated programs table */}
+          <section id="programs" className="mb-12 bg-white">
             <h2 className="text-2xl font-semibold text-foreground text-center">Curated Canadian programs</h2>
             <p className="text-sm text-muted-foreground mt-2 text-center">Note: This guide is not comprehensive; always perform your own research. *Most internships are paid.</p>
             <div className="mt-6 overflow-x-auto">
