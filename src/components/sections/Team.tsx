@@ -12,28 +12,40 @@ interface TeamMember {
 
 const teamMembers: TeamMember[] = [
   {
-    name: "First Last",
-    role: "Co-Founder",
-    bio: "Short bio goes here. Share background, interests, and what they bring to The MedLink Project.",
-    initials: "FL",
+    name: "Ervis Musa",
+    role: "Project Coordinator",
+    bio: "Ervis is a medical student at the University of Ottawa. He completed his Bachelor of Health Sciences at Queen’s University with a certificate in Disability and Physical Activity (DIPA). He values mentorship for its ability to turn experience into direction—something he benefited from himself and now aims to offer others. Don’t pay for your mentorship! Outside of MedLink, he's currently training for a marathon.",
+    initials: "EM",
   },
   {
-    name: "First Last",
-    role: "Co-Founder",
-    bio: "Short bio goes here. Share background, interests, and what they bring to The MedLink Project.",
-    initials: "FL",
+    name: "Matey Juric",
+    role: "Mentorship Team Lead",
+    bio: "Matey is a medical student at the University of Ottawa. He completed a degree in Biological Sciences at Drexel University in Philadelphia prior to medical school. He’s passionate about mentorship because of the lifelong connections it fosters and believes there’s nothing more fulfilling than helping someone work toward their goals.",
+    initials: "MJ",
   },
   {
-    name: "First Last",
-    role: "Operations Lead",
-    bio: "Short bio goes here. Share background, interests, and what they bring to The MedLink Project.",
-    initials: "FL",
+    name: "Alec Weller",
+    role: "Undergraduate Outreach Lead",
+    bio: "Alec is a medical student at the University of Ottawa. Outside of school, he enjoys playing soccer and staying active through sports. He values mentorship as a way to give students clarity and confidence when navigating a confusing and competitive path, and he’s committed to making that journey feel more approachable for others.",
+    initials: "AW",
   },
   {
-    name: "First Last",
-    role: "Programs Lead",
-    bio: "Short bio goes here. Share background, interests, and what they bring to The MedLink Project.",
-    initials: "FL",
+    name: "Braeden Hill",
+    role: "Events & Programming Lead",
+    bio: "Braeden is a medical student at the University of Toronto. Outside of his academic pursuits, he enjoys going to the gym, running, and playing sports. For him, mentorship is about sharing experience and encouragement during one of the most stressful and uncertain parts of a student’s journey.",
+    initials: "BH",
+  },
+  {
+    name: "Adam Levitan",
+    role: "Inclusion & Access Lead",
+    bio: "Adam is currently pursuing his Master’s at the University of Toronto’s Institute of Medical Science, with an undergraduate background in biology from Queen’s University. Adam enjoys the reciprocal learning that comes with mentor-mentee relationships and is especially passionate about providing mentorship free of cost, the way all mentorship should be.",
+    initials: "AL",
+  },
+  {
+    name: "Nicholas Falconi",
+    role: "Website & Tech Lead",
+    bio: "Nick holds a degree in Computer Science with a specialization in Biomedical Computing from Queen’s University. He built and maintains the MedLink website and supports the team with digital systems and infrastructure. He values mentorship for its ability to demystify complex paths and open doors that others might not know existed.",
+    initials: "NF",
   },
 ];
 
@@ -67,7 +79,7 @@ export const Team = () => {
               <CardHeader className="flex flex-row items-center gap-4">
                 <Avatar>
                   {member.image ? (
-                    <AvatarImage src={member.image} alt={`${member.name} headshot`} />
+                    <AvatarImage src={member.image} alt={`MedLink Project team member headshot`} />
                   ) : (
                     <AvatarFallback className="bg-secondary text-foreground">
                       {member.initials ?? member.name.split(" ").map((n) => n[0]).slice(0, 2).join("")}
