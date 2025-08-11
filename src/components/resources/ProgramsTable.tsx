@@ -73,27 +73,27 @@ const ProgramsTable: React.FC<ProgramsTableProps> = ({ programs }) => {
         </div>
         <div className="md:col-span-3">
           <Label className="text-muted-foreground">School</Label>
-          <Select value={school} onValueChange={(v) => setSchool(v)}>
-            <SelectTrigger className="mt-2"><SelectValue placeholder="All schools" /></SelectTrigger>
-            <SelectContent>
-              <SelectItem value="">All schools</SelectItem>
-              {schools.map((s) => (
-                <SelectItem key={s} value={s}>{s}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+<Select value={school || "ALL"} onValueChange={(v) => setSchool(v === "ALL" ? "" : v)}>
+  <SelectTrigger className="mt-2"><SelectValue placeholder="All schools" /></SelectTrigger>
+  <SelectContent>
+    <SelectItem value="ALL">All schools</SelectItem>
+    {schools.map((s) => (
+      <SelectItem key={s} value={s}>{s}</SelectItem>
+    ))}
+  </SelectContent>
+</Select>
         </div>
         <div className="md:col-span-3">
           <Label className="text-muted-foreground">Structure</Label>
-          <Select value={structure} onValueChange={(v) => setStructure(v)}>
-            <SelectTrigger className="mt-2"><SelectValue placeholder="All structures" /></SelectTrigger>
-            <SelectContent>
-              <SelectItem value="">All structures</SelectItem>
-              {structures.map((s) => (
-                <SelectItem key={s} value={s}>{s}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+<Select value={structure || "ALL"} onValueChange={(v) => setStructure(v === "ALL" ? "" : v)}>
+  <SelectTrigger className="mt-2"><SelectValue placeholder="All structures" /></SelectTrigger>
+  <SelectContent>
+    <SelectItem value="ALL">All structures</SelectItem>
+    {structures.map((s) => (
+      <SelectItem key={s} value={s}>{s}</SelectItem>
+    ))}
+  </SelectContent>
+</Select>
         </div>
         <div className="md:col-span-1 flex items-end">
           <Button variant="secondary" className="w-full" onClick={reset} disabled={!term && !school && !structure}>
