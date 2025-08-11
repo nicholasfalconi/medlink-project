@@ -4,9 +4,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Dialog,
   DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
 } from "@/components/ui/dialog";
 import {
   Accordion,
@@ -28,7 +25,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Ervis Musa",
     role: "Project Coordinator",
-    bio: "Ervis is a medical student at the University of Ottawa. He completed his Bachelor of Health Sciences at Queen’s University with a certificate in Disability and Physical Activity (DIPA). He values mentorship for its ability to turn experience into direction—something he benefited from himself and now aims to offer others. Don’t pay for your mentorship! Outside of MedLink, he's currently training for a marathon.",
+    bio: "Ervis is a medical student at the University of Ottawa. He completed his Bachelor of Health Sciences at Queen's University with a certificate in Disability and Physical Activity (DIPA). He values mentorship for its ability to turn experience into direction—something he benefited from himself and now aims to offer others. Don't pay for your mentorship! Outside of MedLink, he's currently training for a marathon.",
     image: "/lovable-uploads/f572a4c6-8aa5-4252-9310-71e2e36e6781.png",
     initials: "EM",
     responsibilities: [
@@ -40,7 +37,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Matey Juric",
     role: "Mentorship Team Lead",
-    bio: "Matey is a medical student at the University of Ottawa. He completed a degree in Biological Sciences at Drexel University in Philadelphia prior to medical school. He’s passionate about mentorship because of the lifelong connections it fosters and believes there’s nothing more fulfilling than helping someone work toward their goals.",
+    bio: "Matey is a medical student at the University of Ottawa. He completed a degree in Biological Sciences at Drexel University in Philadelphia prior to medical school. He's passionate about mentorship because of the lifelong connections it fosters and believes there's nothing more fulfilling than helping someone work toward their goals.",
     image: "/lovable-uploads/41742e0a-3782-490f-8609-be96532f4fbd.png",
     initials: "MJ",
     responsibilities: [
@@ -52,7 +49,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Alec Weller",
     role: "Undergraduate Outreach Lead",
-    bio: "Alec is a medical student at the University of Ottawa. Outside of school, he enjoys playing soccer and staying active through sports. He values mentorship as a way to give students clarity and confidence when navigating a confusing and competitive path, and he’s committed to making that journey feel more approachable for others.",
+    bio: "Alec is a medical student at the University of Ottawa. Outside of school, he enjoys playing soccer and staying active through sports. He values mentorship as a way to give students clarity and confidence when navigating a confusing and competitive path, and he's committed to making that journey feel more approachable for others.",
     image: "/lovable-uploads/ba8e00af-8c59-45e1-b795-26fe6d2cf17c.png",
     initials: "AW",
     responsibilities: [
@@ -64,7 +61,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Braeden Hill",
     role: "Events & Programming Lead",
-    bio: "Braeden is a medical student at the University of Toronto. Outside of his academic pursuits, he enjoys going to the gym, running, and playing sports. For him, mentorship is about sharing experience and encouragement during one of the most stressful and uncertain parts of a student’s journey.",
+    bio: "Braeden is a medical student at the University of Toronto. Outside of his academic pursuits, he enjoys going to the gym, running, and playing sports. For him, mentorship is about sharing experience and encouragement during one of the most stressful and uncertain parts of a student's journey.",
     image: "/lovable-uploads/6e05aacf-2940-422e-9e80-da3f2bccb15b.png",
     initials: "BH",
     responsibilities: [
@@ -76,7 +73,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Adam Levitan",
     role: "Inclusion & Access Lead",
-    bio: "Adam is currently pursuing his Master’s at the University of Toronto’s Institute of Medical Science, with an undergraduate background in biology from Queen’s University. Adam enjoys the reciprocal learning that comes with mentor-mentee relationships and is especially passionate about providing mentorship free of cost, the way all mentorship should be.",
+    bio: "Adam is currently pursuing his Master's at the University of Toronto's Institute of Medical Science, with an undergraduate background in biology from Queen's University. Adam enjoys the reciprocal learning that comes with mentor-mentee relationships and is especially passionate about providing mentorship free of cost, the way all mentorship should be.",
     image: "/lovable-uploads/9e284c90-1db3-405f-a48b-8abbbfe5af2c.png",
     initials: "AL",
     responsibilities: [
@@ -87,7 +84,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Nicholas Falconi",
     role: "Website & Tech Lead",
-    bio: "Nick holds a degree in Computer Science with a specialization in Biomedical Computing from Queen’s University. He built and maintains the MedLink website and supports the team with digital systems and infrastructure. He values mentorship for its ability to demystify complex paths and open doors that others might not know existed.",
+    bio: "Nick holds a degree in Computer Science with a specialization in Biomedical Computing from Queen's University. He built and maintains the MedLink website and supports the team with digital systems and infrastructure. He values mentorship for its ability to demystify complex paths and open doors that others might not know existed.",
     initials: "NF",
     responsibilities: [
       "Built and maintains the MedLink website",
@@ -126,7 +123,7 @@ export const Team = () => {
           </p>
         </div>
 
-        {/* 3 columns on large screens */}
+        {/* 3 columns on large screens (3x3 layout when 9 items) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {teamMembers.map((member, idx) => (
             <Card
@@ -170,33 +167,29 @@ export const Team = () => {
           ))}
         </div>
 
-        {/* Dialog for details with accordion default open */}
+        {/* Dialog for details - keeps same visual hierarchy: image top, then name, role, bio, and accordion */}
         <Dialog open={open} onOpenChange={setOpen}>
-          <DialogContent>
+          <DialogContent className="sm:max-w-xl">
             {selectedMember && (
-              <div>
-                <DialogHeader>
-                  <DialogTitle className="text-foreground">{selectedMember.name}</DialogTitle>
-                  {selectedMember.role && (
-                    <DialogDescription>{selectedMember.role}</DialogDescription>
+              <div className="flex flex-col items-center text-center">
+                <Avatar className="h-24 w-24 mb-4">
+                  {selectedMember.image ? (
+                    <AvatarImage src={selectedMember.image} alt={`${selectedMember.name} - ${selectedMember.role ?? "Team member"} headshot`} />
+                  ) : (
+                    <AvatarFallback className="bg-secondary text-foreground">
+                      {selectedMember.initials ?? selectedMember.name.split(" ").map((n) => n[0]).slice(0, 2).join("")}
+                    </AvatarFallback>
                   )}
-                </DialogHeader>
-                <div className="flex items-start gap-4 mt-2">
-                  <Avatar className="h-16 w-16">
-                    {selectedMember.image ? (
-                      <AvatarImage src={selectedMember.image} alt={`${selectedMember.name} - ${selectedMember.role ?? "Team member"} headshot`} />
-                    ) : (
-                      <AvatarFallback className="bg-secondary text-foreground">
-                        {selectedMember.initials ?? selectedMember.name.split(" ").map((n) => n[0]).slice(0, 2).join("")}
-                      </AvatarFallback>
-                    )}
-                  </Avatar>
-                  <p className="text-sm leading-6 text-muted-foreground">
-                    {selectedMember.bio}
-                  </p>
-                </div>
+                </Avatar>
+                <h3 className="text-xl font-semibold text-foreground">{selectedMember.name}</h3>
+                {selectedMember.role && (
+                  <p className="text-sm text-muted-foreground">{selectedMember.role}</p>
+                )}
+                <p className="mt-3 text-sm leading-6 text-muted-foreground max-w-prose">
+                  {selectedMember.bio}
+                </p>
 
-                <div className="mt-4">
+                <div className="w-full mt-4 text-left">
                   <Accordion type="single" collapsible defaultValue="roles">
                     <AccordionItem value="roles" className="border-b-0">
                       <AccordionTrigger>Roles & Responsibilities</AccordionTrigger>
