@@ -160,7 +160,7 @@ const LifeAfterUndergrad = () => {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: "Life after undergrad",
-    description: "Options after graduation: grad school, paid work, or gap year—plus curated program list.",
+    description: "Options after graduation: grad school, paid work, or gap year - plus curated program list.",
     author: {
       "@type": "Organization",
       name: "The MedLink Project"
@@ -170,9 +170,18 @@ const LifeAfterUndergrad = () => {
       <Navigation />
 
       <main>
-        <section className="bg-background">
+        <section className="relative bg-background overflow-hidden">
+          {/* Decorative background graphics */}
+          <div aria-hidden className="pointer-events-none absolute inset-0">
+            <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-primary/10 blur-3xl" />
+            <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-secondary/50 blur-3xl" />
+            <svg className="absolute top-0 left-1/2 -translate-x-1/2 w-[960px] h-28 text-primary/10" viewBox="0 0 960 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 80 C 200 20, 400 140, 640 60 C 760 20, 860 100, 960 60" stroke="currentColor" strokeWidth="2" fill="none" />
+            </svg>
+          </div>
+
           <div className="section-padding">
-            <div className="max-w-7xl mx-auto px-4">
+            <div className="max-w-7xl mx-auto px-4 relative">
               {/* Breadcrumbs */}
               <Breadcrumb>
                 <BreadcrumbList>
@@ -191,20 +200,20 @@ const LifeAfterUndergrad = () => {
               </Breadcrumb>
 
               {/* Title */}
-              <header className="mt-6 text-center">
+              <header className="mt-6 text-center animate-fade-in">
                 <h1 className="text-3xl md:text-5xl font-bold text-foreground">Life after undergrad</h1>
               </header>
 
               {/* 1) Intro section (first, no card background) */}
               <section className="mt-8 mb-10">
                 <div className="max-w-4xl mx-auto">
-                  <p className="text-sm md:text-base leading-7 text-muted-foreground">
+                  <p className="text-sm md:text-base leading-7 text-muted-foreground animate-fade-in">
                     Applying to medical school is challenging, and facing rejection can leave you uncertain about next steps, whether that's exploring gap years, graduate programs, or alternative career paths in healthcare and industry.
                   </p>
-                  <p className="mt-4 text-sm md:text-base leading-7 text-muted-foreground">
-                    After graduation, the sudden freedom can feel liberating but often leads to a lack of structure, causing some people to become paralyzed by endless possibilities while others overcommit and spread themselves too thin. We advise students to find the sweet spot by reflecting on their goals—whether improving MCAT scores, pursuing research, or earning income—and scaffold their unstructured time with realistic tasks and timelines to stay accountable.
+                  <p className="mt-4 text-sm md:text-base leading-7 text-muted-foreground animate-fade-in">
+                    After graduation, the sudden freedom can feel liberating but often leads to a lack of structure, causing some people to become paralyzed by endless possibilities while others overcommit and spread themselves too thin. We advise students to find the sweet spot by reflecting on their goals - whether improving MCAT scores, pursuing research, or earning income - and scaffold their unstructured time with realistic tasks and timelines to stay accountable.
                   </p>
-                  <p className="mt-4 text-sm md:text-base leading-7 text-muted-foreground">
+                  <p className="mt-4 text-sm md:text-base leading-7 text-muted-foreground animate-fade-in">
                     We've identified three common paths that premeds tend to take after graduation if they don't get into medical school.
                   </p>
                 </div>
@@ -220,7 +229,7 @@ const LifeAfterUndergrad = () => {
               <section className="mb-0">
                 <div className="grid md:grid-cols-3 gap-6">
                   {/* Graduate school */}
-                  <article className="rounded-xl border bg-card p-6">
+                  <article className="rounded-xl border bg-card p-6 animate-fade-in">
                     <div className="flex items-center gap-2 mb-2">
                       <GraduationCap className="h-5 w-5 text-primary" />
                       <h2 className="text-lg font-semibold text-foreground">Graduate school</h2>
@@ -242,14 +251,14 @@ const LifeAfterUndergrad = () => {
                   </article>
 
                   {/* Paid Work */}
-                  <article className="rounded-xl border bg-card p-6">
+                  <article className="rounded-xl border bg-card p-6 animate-fade-in">
                     <div className="flex items-center gap-2 mb-2">
                       <Briefcase className="h-5 w-5 text-primary" />
                       <h2 className="text-lg font-semibold text-foreground">Paid Work</h2>
                     </div>
                     <ul className="mt-2 list-disc pl-5 text-sm text-muted-foreground space-y-1">
                       <li>Good for those looking to make money and those who have spent enough time in the classroom</li>
-                      <li>Very competitive—prepare your resume and practice writing cover letters; landing a good position takes patience and persistence</li>
+                      <li>Very competitive - prepare your resume and practice writing cover letters; landing a good position takes patience and persistence</li>
                     </ul>
                     <div className="mt-4">
                       <p className="text-sm font-medium text-foreground">Important considerations</p>
@@ -266,14 +275,14 @@ const LifeAfterUndergrad = () => {
                   </article>
 
                   {/* Gap Year */}
-                  <article className="rounded-xl border bg-card p-6">
+                  <article className="rounded-xl border bg-card p-6 animate-fade-in">
                     <div className="flex items-center gap-2 mb-2">
                       <Compass className="h-5 w-5 text-primary" />
                       <h2 className="text-lg font-semibold text-foreground">Gap Year</h2>
                     </div>
                     <ul className="mt-2 list-disc pl-5 text-sm text-muted-foreground space-y-1">
                       <li>Good for people looking to improvise while finding the right job or graduate program</li>
-                      <li>It can feel unsettling to improvise and not be working towards a greater purpose—optimistically, you get time to focus on yourself</li>
+                      <li>It can feel unsettling to improvise and not be working towards a greater purpose - optimistically, you get time to focus on yourself</li>
                       <li>Explore your interests however your heart desires</li>
                       <li>Volunteering: contribute to a cause greater than yourself, learn skills, build connections, and discover new career paths</li>
                     </ul>
@@ -316,7 +325,7 @@ const LifeAfterUndergrad = () => {
                               Visit
                             </a>
                           ) : (
-                            <span className="text-muted-foreground">—</span>
+                            <span className="text-muted-foreground">-</span>
                           )}
                         </td>
                       </tr>

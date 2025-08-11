@@ -25,7 +25,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Ervis Musa",
     role: "Project Coordinator",
-    bio: "Ervis is a medical student at the University of Ottawa. He completed his Bachelor of Health Sciences at Queen's University with a certificate in Disability and Physical Activity (DIPA). He values mentorship for its ability to turn experience into direction—something he benefited from himself and now aims to offer others. Don't pay for your mentorship! Outside of MedLink, he's currently training for a marathon.",
+    bio: "Ervis is a medical student at the University of Ottawa. He completed his Bachelor of Health Sciences at Queen's University with a certificate in Disability and Physical Activity (DIPA). He values mentorship for its ability to turn experience into direction - something he benefited from himself and now aims to offer others. Don't pay for your mentorship! Outside of MedLink, he's currently training for a marathon.",
     image: "/lovable-uploads/f572a4c6-8aa5-4252-9310-71e2e36e6781.png",
     initials: "EM",
     responsibilities: [
