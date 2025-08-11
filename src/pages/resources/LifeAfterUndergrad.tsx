@@ -16,133 +16,155 @@ const programs: Program[] = [{
   degree: "Master of Health Science (MHSc)",
   school: "University of Toronto",
   length: "12 months",
-  structure: "Course-based with paid* internship"
+  structure: "Course-based with paid* internship",
+  link: "https://ihpme.utoronto.ca/academics/graduate-programs/mhsc-medical-physiology/"
 }, {
   program: "Biomedical Discovery and Commercialization",
   degree: "Master of Biomedical Discovery and Commercialization (MBDC)",
   school: "McMaster University",
   length: "12 months",
-  structure: "Course-based with paid* internship"
+  structure: "Course-based with paid* internship",
+  link: "https://mbdc.mcmaster.ca/"
 }, {
   program: "Biomedical Informatics",
   degree: "Master of Biomedical Informatics",
   school: "Queen's University",
   length: "12 months",
-  structure: "Course-based with capstone project"
+  structure: "Course-based with capstone project",
+  link: "https://healthsci.queensu.ca/education/graduate-programs/biomedical-informatics"
 }, {
   program: "Biomedical Innovation",
   degree: "Master of Biomedical Innovation (MBI)",
   school: "McMaster University",
   length: "12 months",
-  structure: "Project-based"
+  structure: "Project-based",
+  link: "https://healthsci.mcmaster.ca/mbi"
 }, {
   program: "Physiology",
   degree: "Master of Science (MSc)",
   school: "McGill University",
   length: "12 months",
-  structure: "Thesis-based"
+  structure: "Thesis-based",
+  link: "https://www.mcgill.ca/physiology/graduate-programs"
 }, {
   program: "Bioinformatics",
   degree: "Master of Bioinformatics (MBinf)",
   school: "University of Guelph",
   length: "12-16 months",
-  structure: "Course-based with capstone project"
+  structure: "Course-based with capstone project",
+  link: "https://bioinformatics.uoguelph.ca/"
 }, {
   program: "AI in Healthcare",
   degree: "Master of Science in Applied Computing (MScAC)",
   school: "University of Toronto",
   length: "16 months",
-  structure: "Course-based with paid internship"
+  structure: "Course-based with paid internship",
+  link: "https://mscac.utoronto.ca/"
 }, {
   program: "Health Informatics",
   degree: "Master of Health Informatics (MHI)",
   school: "University of Toronto",
   length: "16 months",
-  structure: "Course-based with practicum"
+  structure: "Course-based with practicum",
+  link: "https://ihpme.utoronto.ca/academics/graduate-programs/mhi/"
 }, {
   program: "Health Systems Research",
   degree: "Master of Science (MSc)",
   school: "University of Toronto",
   length: "12-18 months",
-  structure: "Thesis-based OR Course-based (limited enrolment)"
+  structure: "Thesis-based OR Course-based (limited enrolment)",
+  link: "https://ihpme.utoronto.ca/academics/graduate-programs/msc-health-systems-research/"
 }, {
   program: "Clinical Epidemiology & Health Care Research",
   degree: "Master of Science (MSc)",
   school: "University of Toronto",
   length: "12-24 months",
-  structure: "Course-based + Research Internship OR Thesis-based"
+  structure: "Course-based + Research Internship OR Thesis-based",
+  link: "https://ihpme.utoronto.ca/academics/graduate-programs/msc-clinical-epi-health-care-research/"
 }, {
   program: "Applied Clinical Pharmacology",
   degree: "Master of Science (MSc)",
   school: "University of Toronto",
   length: "12 OR 24 months",
-  structure: "Course-based with practicum OR Course-based"
+  structure: "Course-based with practicum OR Course-based",
+  link: "https://ihpme.utoronto.ca/academics/graduate-programs/msc-applied-clinical-pharmacology/"
 }, {
   program: "Pharmacology",
   degree: "Master of Science (MSc)",
   school: "McGill University",
   length: "18-24 months",
-  structure: "Thesis-based"
+  structure: "Thesis-based",
+  link: "https://www.mcgill.ca/pharma/graduate-programs"
 }, {
   program: "Bioethics",
   degree: "Master of Health Science (MHSc)",
   school: "University of Toronto",
   length: "20 months",
-  structure: "Course-based with practicum and capstone"
+  structure: "Course-based with practicum and capstone",
+  link: "https://ihpme.utoronto.ca/academics/graduate-programs/mhsc-bioethics/"
 }, {
   program: "Health Science",
   degree: "Master of Health Science (MHSc)",
   school: "University of British Columbia",
   length: "21 months (avg)",
-  structure: "Course-based with capstone project"
+  structure: "Course-based with capstone project",
+  link: "https://spph.ubc.ca/programs/mhsc/"
 }, {
   program: "Medical Science",
   degree: "Master of Science (MSc)",
   school: "McMaster University",
   length: "22-24 months",
-  structure: "Thesis-based"
+  structure: "Thesis-based",
+  link: "https://healthsci.mcmaster.ca/gradprog/msc"
 }, {
   program: "Medical Science",
   degree: "Master of Science (MSc)",
   school: "University of Toronto",
   length: "22-24 months",
-  structure: "Thesis-based"
+  structure: "Thesis-based",
+  link: "https://medsci.utoronto.ca/graduate-programs"
 }, {
   program: "Epidemiology",
   degree: "Master of Science (MSc)",
   school: "McGill University",
   length: "24 months",
-  structure: "Thesis-based"
+  structure: "Thesis-based",
+  link: "https://www.mcgill.ca/epi-biostat-occh/graduate-programs"
 }, {
   program: "Experimental Medicine",
   degree: "Master of Science (MSc)",
   school: "McGill University",
   length: "24 months",
-  structure: "Thesis-based"
+  structure: "Thesis-based",
+  link: "https://www.mcgill.ca/expmed/graduate"
 }, {
   program: "Neuroscience",
   degree: "Master of Science (MSc)",
   school: "Queen's University",
   length: "24 months",
-  structure: "Thesis-based"
+  structure: "Thesis-based",
+  link: "https://dbms.queensu.ca/graduate/neuroscience"
 }, {
   program: "Epidemiology",
   degree: "Master of Science (MSc)",
   school: "Queen's University",
   length: "24 months",
-  structure: "Thesis-based"
+  structure: "Thesis-based",
+  link: "https://phs.queensu.ca/graduate-programs/msc-epidemiology"
 }, {
   program: "Translational Medicine",
   degree: "Master of Science (MSc)",
   school: "Queen's University",
   length: "24 months",
-  structure: "Thesis-based"
+  structure: "Thesis-based",
+  link: "https://dbms.queensu.ca/graduate/translational-medicine"
 }, {
   program: "Experimental Medicine",
   degree: "Master of Science (MSc)",
   school: "University of British Columbia",
   length: "35 months (avg)",
-  structure: "Thesis-based"
+  structure: "Thesis-based",
+  link: "https://www.expmed.ubc.ca/"
 }];
 const LifeAfterUndergrad = () => {
   useEffect(() => {
