@@ -86,9 +86,12 @@ const teamMembers: TeamMember[] = [
 ];
 
 export const Team = () => {
-  const [openMap, setOpenMap] = useState<Record<number, boolean>>({});
-  const toggle = (idx: number) =>
-    setOpenMap((m) => ({ ...m, [idx]: !m[idx] }));
+  // Separate open states for Bio and Responsibilities per member
+  const [openBio, setOpenBio] = useState<Record<number, boolean>>({});
+  const [openResp, setOpenResp] = useState<Record<number, boolean>>({});
+
+  const toggleBio = (i: number) => setOpenBio((m) => ({ ...m, [i]: !m[i] }));
+  const toggleResp = (i: number) => setOpenResp((m) => ({ ...m, [i]: !m[i] }));
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -115,20 +118,7 @@ export const Team = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
           {teamMembers.map((member, idx) => (
-            <Card
-              key={idx}
-              className="border bg-card focus-visible:ring-2 focus-visible:ring-primary/40 outline-none cursor-pointer"
-              role="button"
-              tabIndex={0}
-              aria-expanded={!!openMap[idx]}
-              onClick={() => toggle(idx)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  toggle(idx);
-                }
-              }}
-            >
+            <Card key={idx} className="border bg-card">
               <CardHeader className="flex flex-col items-center gap-4 text-center">
                 <Avatar className="h-24 w-24">
                   {member.image ? (
@@ -139,31 +129,57 @@ export const Team = () => {
                     </AvatarFallback>
                   )}
                 </Avatar>
-                <div className="flex items-center gap-2">
-                  <div>
-                    <CardTitle className="text-lg text-foreground">{member.name}</CardTitle>
-                    {member.role && (
-                      <p className="text-sm text-muted-foreground">{member.role}</p>
-                    )}
-                  </div>
-                  <ChevronDown
-                    className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${openMap[idx] ? "rotate-180" : "rotate-0"}`}
-                    aria-hidden="true"
-                  />
+                <div>
+                  <CardTitle className="text-lg text-foreground">{member.name}</CardTitle>
+                  {member.role && (
+                    <p className="text-sm text-muted-foreground">{member.role}</p>
+                  )}
                 </div>
               </CardHeader>
-              <CardContent className={openMap[idx] ? "" : "hidden"}>
-                <p className="text-sm leading-6 text-muted-foreground">{member.bio}</p>
-                {member.responsibilities && member.responsibilities.length > 0 && (
-                  <div className="mt-4">
-                    <p className="text-sm font-medium text-foreground">Role responsibilities</p>
-                    <ul className={`mt-2 list-disc pl-5 space-y-1 text-sm text-muted-foreground ${openMap[idx] ? "block" : "hidden"}`}>
+
+              <CardContent>
+                {/* Bio dropdown */}
+                <button
+                  type="button"
+                  onClick={() => toggleBio(idx)}
+                  aria-expanded={!!openBio[idx]}
+                  className="w-full flex items-center justify-between rounded-md px-4 py-2 bg-muted/30 hover:bg-muted/40 transition-colors"
+                >
+                  <span className="text-sm font-medium text-foreground">Bio</span>
+                  <ChevronDown
+                    className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${openBio[idx] ? "rotate-180" : "rotate-0"}`}
+                    aria-hidden="true"
+                  />
+                </button>
+                <div className={openBio[idx] ? "mt-3 animate-fade-in" : "hidden"}>
+                  <p className="text-sm leading-6 text-muted-foreground">{member.bio}</p>
+                </div>
+
+                {/* Roles & Responsibilities dropdown */}
+                <div className="mt-4" />
+                <button
+                  type="button"
+                  onClick={() => toggleResp(idx)}
+                  aria-expanded={!!openResp[idx]}
+                  className="w-full flex items-center justify-between rounded-md px-4 py-2 bg-muted/30 hover:bg-muted/40 transition-colors"
+                >
+                  <span className="text-sm font-medium text-foreground">Roles & Responsibilities</span>
+                  <ChevronDown
+                    className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${openResp[idx] ? "rotate-180" : "rotate-0"}`}
+                    aria-hidden="true"
+                  />
+                </button>
+                <div className={openResp[idx] ? "mt-3 animate-fade-in" : "hidden"}>
+                  {member.responsibilities && member.responsibilities.length > 0 ? (
+                    <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
                       {member.responsibilities.map((r, i) => (
                         <li key={i}>{r}</li>
                       ))}
                     </ul>
-                  </div>
-                )}
+                  ) : (
+                    <p className="text-sm text-muted-foreground">No responsibilities listed.</p>
+                  )}
+                </div>
               </CardContent>
             </Card>
           ))}
