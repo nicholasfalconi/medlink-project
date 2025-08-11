@@ -1,7 +1,19 @@
 import { useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ChevronDown } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 interface TeamMember {
   name: string;
@@ -16,7 +28,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Ervis Musa",
     role: "Project Coordinator",
-    bio: "Ervis is a medical student at the University of Ottawa. He completed his Bachelor of Health Sciences at Queen's University with a certificate in Disability and Physical Activity (DIPA). He values mentorship for its ability to turn experience into direction—something he benefited from himself and now aims to offer others. Don't pay for your mentorship! Outside of MedLink, he's currently training for a marathon.",
+    bio: "Ervis is a medical student at the University of Ottawa. He completed his Bachelor of Health Sciences at Queen’s University with a certificate in Disability and Physical Activity (DIPA). He values mentorship for its ability to turn experience into direction—something he benefited from himself and now aims to offer others. Don’t pay for your mentorship! Outside of MedLink, he's currently training for a marathon.",
     image: "/lovable-uploads/f572a4c6-8aa5-4252-9310-71e2e36e6781.png",
     initials: "EM",
     responsibilities: [
@@ -28,7 +40,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Matey Juric",
     role: "Mentorship Team Lead",
-    bio: "Matey is a medical student at the University of Ottawa. He completed a degree in Biological Sciences at Drexel University in Philadelphia prior to medical school. He's passionate about mentorship because of the lifelong connections it fosters and believes there's nothing more fulfilling than helping someone work toward their goals.",
+    bio: "Matey is a medical student at the University of Ottawa. He completed a degree in Biological Sciences at Drexel University in Philadelphia prior to medical school. He’s passionate about mentorship because of the lifelong connections it fosters and believes there’s nothing more fulfilling than helping someone work toward their goals.",
     image: "/lovable-uploads/41742e0a-3782-490f-8609-be96532f4fbd.png",
     initials: "MJ",
     responsibilities: [
@@ -40,7 +52,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Alec Weller",
     role: "Undergraduate Outreach Lead",
-    bio: "Alec is a medical student at the University of Ottawa. Outside of school, he enjoys playing soccer and staying active through sports. He values mentorship as a way to give students clarity and confidence when navigating a confusing and competitive path, and he's committed to making that journey feel more approachable for others.",
+    bio: "Alec is a medical student at the University of Ottawa. Outside of school, he enjoys playing soccer and staying active through sports. He values mentorship as a way to give students clarity and confidence when navigating a confusing and competitive path, and he’s committed to making that journey feel more approachable for others.",
     image: "/lovable-uploads/ba8e00af-8c59-45e1-b795-26fe6d2cf17c.png",
     initials: "AW",
     responsibilities: [
@@ -52,7 +64,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Braeden Hill",
     role: "Events & Programming Lead",
-    bio: "Braeden is a medical student at the University of Toronto. Outside of his academic pursuits, he enjoys going to the gym, running, and playing sports. For him, mentorship is about sharing experience and encouragement during one of the most stressful and uncertain parts of a student's journey.",
+    bio: "Braeden is a medical student at the University of Toronto. Outside of his academic pursuits, he enjoys going to the gym, running, and playing sports. For him, mentorship is about sharing experience and encouragement during one of the most stressful and uncertain parts of a student’s journey.",
     image: "/lovable-uploads/6e05aacf-2940-422e-9e80-da3f2bccb15b.png",
     initials: "BH",
     responsibilities: [
@@ -64,7 +76,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Adam Levitan",
     role: "Inclusion & Access Lead",
-    bio: "Adam is currently pursuing his Master's at the University of Toronto's Institute of Medical Science, with an undergraduate background in biology from Queen's University. Adam enjoys the reciprocal learning that comes with mentor-mentee relationships and is especially passionate about providing mentorship free of cost, the way all mentorship should be.",
+    bio: "Adam is currently pursuing his Master’s at the University of Toronto’s Institute of Medical Science, with an undergraduate background in biology from Queen’s University. Adam enjoys the reciprocal learning that comes with mentor-mentee relationships and is especially passionate about providing mentorship free of cost, the way all mentorship should be.",
     image: "/lovable-uploads/9e284c90-1db3-405f-a48b-8abbbfe5af2c.png",
     initials: "AL",
     responsibilities: [
@@ -75,7 +87,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Nicholas Falconi",
     role: "Website & Tech Lead",
-    bio: "Nick holds a degree in Computer Science with a specialization in Biomedical Computing from Queen's University. He built and maintains the MedLink website and supports the team with digital systems and infrastructure. He values mentorship for its ability to demystify complex paths and open doors that others might not know existed.",
+    bio: "Nick holds a degree in Computer Science with a specialization in Biomedical Computing from Queen’s University. He built and maintains the MedLink website and supports the team with digital systems and infrastructure. He values mentorship for its ability to demystify complex paths and open doors that others might not know existed.",
     initials: "NF",
     responsibilities: [
       "Built and maintains the MedLink website",
@@ -86,12 +98,10 @@ const teamMembers: TeamMember[] = [
 ];
 
 export const Team = () => {
-  // Separate open states for Bio and Responsibilities per member
-  const [openBio, setOpenBio] = useState<Record<number, boolean>>({});
-  const [openResp, setOpenResp] = useState<Record<number, boolean>>({});
+  const [open, setOpen] = useState(false);
+  const [selected, setSelected] = useState<number | null>(null);
 
-  const toggleBio = (i: number) => setOpenBio((m) => ({ ...m, [i]: !m[i] }));
-  const toggleResp = (i: number) => setOpenResp((m) => ({ ...m, [i]: !m[i] }));
+  const selectedMember = selected !== null ? teamMembers[selected] : null;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -116,9 +126,26 @@ export const Team = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+        {/* 3 columns on large screens */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {teamMembers.map((member, idx) => (
-            <Card key={idx} className="border bg-card">
+            <Card
+              key={idx}
+              className="border bg-card hover-scale"
+              role="button"
+              tabIndex={0}
+              onClick={() => {
+                setSelected(idx);
+                setOpen(true);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setSelected(idx);
+                  setOpen(true);
+                }
+              }}
+            >
               <CardHeader className="flex flex-col items-center gap-4 text-center">
                 <Avatar className="h-24 w-24">
                   {member.image ? (
@@ -136,55 +163,63 @@ export const Team = () => {
                   )}
                 </div>
               </CardHeader>
-
               <CardContent>
-                {/* Bio dropdown */}
-                <button
-                  type="button"
-                  onClick={() => toggleBio(idx)}
-                  aria-expanded={!!openBio[idx]}
-                  className="w-full flex items-center justify-between rounded-md px-4 py-2 bg-muted/30 hover:bg-muted/40 transition-colors"
-                >
-                  <span className="text-sm font-medium text-foreground">Bio</span>
-                  <ChevronDown
-                    className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${openBio[idx] ? "rotate-180" : "rotate-0"}`}
-                    aria-hidden="true"
-                  />
-                </button>
-                <div className={openBio[idx] ? "mt-3 animate-fade-in" : "hidden"}>
-                  <p className="text-sm leading-6 text-muted-foreground">{member.bio}</p>
-                </div>
-
-                {/* Roles & Responsibilities dropdown */}
-                <div className="mt-4" />
-                <button
-                  type="button"
-                  onClick={() => toggleResp(idx)}
-                  aria-expanded={!!openResp[idx]}
-                  className="w-full flex items-center justify-between rounded-md px-4 py-2 bg-muted/30 hover:bg-muted/40 transition-colors"
-                >
-                  <span className="text-sm font-medium text-foreground">Roles & Responsibilities</span>
-                  <ChevronDown
-                    className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${openResp[idx] ? "rotate-180" : "rotate-0"}`}
-                    aria-hidden="true"
-                  />
-                </button>
-                <div className={openResp[idx] ? "mt-3 animate-fade-in" : "hidden"}>
-                  {member.responsibilities && member.responsibilities.length > 0 ? (
-                    <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
-                      {member.responsibilities.map((r, i) => (
-                        <li key={i}>{r}</li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <p className="text-sm text-muted-foreground">No responsibilities listed.</p>
-                  )}
-                </div>
+                <p className="text-sm leading-6 text-muted-foreground">{member.bio}</p>
               </CardContent>
             </Card>
           ))}
         </div>
 
+        {/* Dialog for details with accordion default open */}
+        <Dialog open={open} onOpenChange={setOpen}>
+          <DialogContent>
+            {selectedMember && (
+              <div>
+                <DialogHeader>
+                  <DialogTitle className="text-foreground">{selectedMember.name}</DialogTitle>
+                  {selectedMember.role && (
+                    <DialogDescription>{selectedMember.role}</DialogDescription>
+                  )}
+                </DialogHeader>
+                <div className="flex items-start gap-4 mt-2">
+                  <Avatar className="h-16 w-16">
+                    {selectedMember.image ? (
+                      <AvatarImage src={selectedMember.image} alt={`${selectedMember.name} - ${selectedMember.role ?? "Team member"} headshot`} />
+                    ) : (
+                      <AvatarFallback className="bg-secondary text-foreground">
+                        {selectedMember.initials ?? selectedMember.name.split(" ").map((n) => n[0]).slice(0, 2).join("")}
+                      </AvatarFallback>
+                    )}
+                  </Avatar>
+                  <p className="text-sm leading-6 text-muted-foreground">
+                    {selectedMember.bio}
+                  </p>
+                </div>
+
+                <div className="mt-4">
+                  <Accordion type="single" collapsible defaultValue="roles">
+                    <AccordionItem value="roles" className="border-b-0">
+                      <AccordionTrigger>Roles & Responsibilities</AccordionTrigger>
+                      <AccordionContent>
+                        {selectedMember.responsibilities && selectedMember.responsibilities.length > 0 ? (
+                          <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
+                            {selectedMember.responsibilities.map((r, i) => (
+                              <li key={i}>{r}</li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p className="text-sm text-muted-foreground">No responsibilities listed.</p>
+                        )}
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                </div>
+              </div>
+            )}
+          </DialogContent>
+        </Dialog>
+
+        {/* Team Roles summary below the pictures */}
         <section className="mt-12 md:mt-16" aria-labelledby="team-roles-heading">
           <h3 id="team-roles-heading" className="text-2xl font-semibold mb-4 text-foreground">Team Roles</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
