@@ -18,15 +18,12 @@ import PreMedGuide from "./pages/resources/PreMedGuide";
 
 const queryClient = new QueryClient();
 
-// Get the base URL from the environment or use default for GitHub Pages
-const baseUrl = import.meta.env.MODE === 'production' ? '/medlink-project/' : '/';
-
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter basename={baseUrl}>
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />

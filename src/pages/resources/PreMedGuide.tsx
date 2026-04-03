@@ -50,24 +50,26 @@ const PreMedGuide = () => {
           </div>
         </section>
 
-        {/* Intro */}
-        <section className="bg-white">
+        <section className="bg-background">
           <div className="section-padding">
             <div className="max-w-4xl mx-auto px-4 prose prose-sm md:prose-base text-muted-foreground">
-              <p>If you're an undergraduate thinking about medicine, you've probably felt it already: that pressure to improve everything.</p>
-              <p>Your GPA. Your extracurriculars. Your research. Your volunteering. Your MCAT. Your sleep, your workouts, your diet... your entire life.</p>
-              <p>And underneath all of that, one quiet question: "Am I doing enough?"</p>
-              <p>This post isn't going to give you a perfect formula - because honestly, there isn't one. Instead, this is about how to manage your time, your expectations, and yourself while you're figuring things out. A huge disclosure - this is just the opinion of one medical student!</p>
-            </div>
-          </div>
-        </section>
+              <p>
+                If you're an undergraduate thinking about medicine, you've probably felt it already: that pressure to improve everything.
+              </p>
+              <p>
+                Your GPA. Your extracurriculars. Your research. Your volunteering. Your MCAT. Your sleep, your workouts, your diet... your entire life.
+              </p>
+              <p>
+                And underneath all of that, one quiet question: "Am I doing enough?"
+              </p>
+              <p>
+                This post isn't going to give you a perfect formula - because honestly, there isn't one. Instead, this is about how to manage your time, your expectations, and yourself while you're figuring things out. A huge disclosure - this is just the opinion of one medical student!
+              </p>
 
-        {/* What your life looks like */}
-        <section className="bg-blue-50">
-          <div className="section-padding">
-            <div className="max-w-4xl mx-auto px-4 prose prose-sm md:prose-base text-muted-foreground">
-              <h2 className="text-2xl font-bold text-foreground mb-4">What Your Life Might Actually Look Like Right Now</h2>
-              <p>A lot of pre-meds think they just need to "study more." But your reality probably looks more like this:</p>
+              <h2 className="text-2xl font-bold text-foreground mt-10 mb-4">What Your Life Might Actually Look Like Right Now</h2>
+              <p>
+                A lot of pre-meds think they just need to "study more." But your reality probably looks more like this:
+              </p>
               <ul className="list-disc pl-5 space-y-1">
                 <li>Full course load (often heavy science courses)</li>
                 <li>Extracurriculars (clubs, exec roles, volunteering)</li>
@@ -77,18 +79,17 @@ const PreMedGuide = () => {
                 <li>Trying to stay healthy (working out, eating properly)</li>
                 <li>And still trying to have a life</li>
               </ul>
-              <p>That's a lot. And research shows that undergraduate students pursuing competitive career paths (like medicine) experience significant academic pressure and stress related to performance expectations.<sup>1</sup></p>
-              <p>So if it feels like a lot - it is.</p>
-            </div>
-          </div>
-        </section>
+              <p>
+                That's a lot. And research shows that undergraduate students pursuing competitive career paths (like medicine) experience significant academic pressure and stress related to performance expectations.<sup>1</sup>
+              </p>
+              <p>
+                So if it feels like a lot - it is.
+              </p>
 
-        {/* Perfectionism + Studying */}
-        <section className="bg-white">
-          <div className="section-padding">
-            <div className="max-w-4xl mx-auto px-4 prose prose-sm md:prose-base text-muted-foreground">
-              <h2 className="text-2xl font-bold text-foreground mb-4">The "I Need to Be Perfect" Mindset</h2>
-              <p>One of the biggest traps in pre-med is this: "If I just manage my time perfectly, I can do everything perfectly."</p>
+              <h2 className="text-2xl font-bold text-foreground mt-10 mb-4">The "I Need to Be Perfect" Mindset</h2>
+              <p>
+                One of the biggest traps in pre-med is this: "If I just manage my time perfectly, I can do everything perfectly."
+              </p>
               <p>So you try to:</p>
               <ul className="list-disc pl-5 space-y-1">
                 <li>Build the perfect study schedule</li>
@@ -96,28 +97,31 @@ const PreMedGuide = () => {
                 <li>Wake up early, work out, meal prep, study efficiently, volunteer, research...</li>
                 <li>And never fall behind</li>
               </ul>
-              <p>But perfectionism, especially in high-achieving students, is strongly linked to burnout, anxiety, and emotional exhaustion.<sup>2</sup></p>
-              <p>And here's the honest part: trying to be perfect usually makes things worse, not better.</p>
+              <p>
+                But perfectionism, especially in high-achieving students, is strongly linked to burnout, anxiety, and emotional exhaustion.<sup>2</sup>
+              </p>
+              <p>
+                And here's the honest part: trying to be perfect usually makes things worse, not better.
+              </p>
 
               <h2 className="text-2xl font-bold text-foreground mt-10 mb-4">Studying vs. "Doing Enough"</h2>
-              <p>You might sit down to study and think: "Other people are probably doing more than me."</p>
+              <p>
+                You might sit down to study and think: "Other people are probably doing more than me."
+              </p>
               <p>So you:</p>
               <ul className="list-disc pl-5 space-y-1">
                 <li>Study longer than you planned</li>
                 <li>Feel guilty taking breaks</li>
                 <li>Question if your methods are "good enough"</li>
               </ul>
-              <p>But effective studying isn't about hours, it's about consistency and strategy.</p>
-              <p>Translation: You don't need the perfect study plan, you need one you can actually stick to.</p>
-            </div>
-          </div>
-        </section>
+              <p>
+                But effective studying isn't about hours, it's about consistency and strategy.
+              </p>
+              <p>
+                Translation: You don't need the perfect study plan, you need one you can actually stick to.
+              </p>
 
-        {/* Applications + Health + Comparison */}
-        <section className="bg-blue-50">
-          <div className="section-padding">
-            <div className="max-w-4xl mx-auto px-4 prose prose-sm md:prose-base text-muted-foreground">
-              <h2 className="text-2xl font-bold text-foreground mb-4">Trying to Build a "Good Application" (While Not Knowing What You Want)</h2>
+              <h2 className="text-2xl font-bold text-foreground mt-10 mb-4">Trying to Build a "Good Application" (While Not Knowing What You Want)</h2>
               <p>This is one of the hardest parts. You might feel like you need to:</p>
               <ul className="list-disc pl-5 space-y-1">
                 <li>Pick the "right" extracurriculars</li>
@@ -131,8 +135,12 @@ const PreMedGuide = () => {
                 <li>No clear idea what different specialties look like</li>
                 <li>No idea what you actually enjoy yet</li>
               </ul>
-              <p>That's normal. Career development research shows that exploration, not early certainty, is a key part of forming long-term professional identity.<sup>3</sup></p>
-              <p>So if you feel like: "I don't know what I'm doing yet" - You're actually doing exactly what you're supposed to be doing.</p>
+              <p>
+                That's normal. Career development research shows that exploration, not early certainty, is a key part of forming long-term professional identity.<sup>3</sup>
+              </p>
+              <p>
+                So if you feel like: "I don't know what I'm doing yet" - You're actually doing exactly what you're supposed to be doing.
+              </p>
 
               <h2 className="text-2xl font-bold text-foreground mt-10 mb-4">Working Out, Eating Well... and Feeling Like You're Failing at Both</h2>
               <p>Let's be real. You probably want to:</p>
@@ -147,18 +155,17 @@ const PreMedGuide = () => {
                 <li>You eat quickly between classes</li>
                 <li>You stay up later than you planned</li>
               </ul>
-              <p>And then you think: "I should be better at this."</p>
-              <p>But even moderate physical activity has been shown to improve mood, reduce stress, and support academic performance.<sup>4</sup></p>
-              <p>Not perfect workouts. Not perfect diets. Just something. A short run. A quick lift. A walk between classes. It counts.</p>
-            </div>
-          </div>
-        </section>
+              <p>
+                And then you think: "I should be better at this."
+              </p>
+              <p>
+                But even moderate physical activity has been shown to improve mood, reduce stress, and support academic performance.<sup>4</sup>
+              </p>
+              <p>
+                Not perfect workouts. Not perfect diets. Just something. A short run. A quick lift. A walk between classes. It counts.
+              </p>
 
-        {/* Comparison + What helps */}
-        <section className="bg-white">
-          <div className="section-padding">
-            <div className="max-w-4xl mx-auto px-4 prose prose-sm md:prose-base text-muted-foreground">
-              <h2 className="text-2xl font-bold text-foreground mb-4">The Hidden Pressure: Comparing Yourself to Everyone</h2>
+              <h2 className="text-2xl font-bold text-foreground mt-10 mb-4">The Hidden Pressure: Comparing Yourself to Everyone</h2>
               <p>You see:</p>
               <ul className="list-disc pl-5 space-y-1">
                 <li>Someone with a 4.0</li>
@@ -166,38 +173,40 @@ const PreMedGuide = () => {
                 <li>Someone volunteering every weekend</li>
                 <li>Someone who "knows" they want surgery or pediatrics</li>
               </ul>
-              <p>And it feels like: "I'm behind."</p>
-              <p>But what you're seeing is a highlight reel, not the full picture. And constant comparison is associated with increased stress and lower well-being in students.<sup>5</sup></p>
+              <p>
+                And it feels like: "I'm behind."
+              </p>
+              <p>
+                But what you're seeing is a highlight reel, not the full picture. And constant comparison is associated with increased stress and lower well-being in students.<sup>5</sup>
+              </p>
 
               <h2 className="text-2xl font-bold text-foreground mt-10 mb-4">What Actually Helps (From Both Research and Experience)</h2>
               <p>Here are a few things that consistently make a difference:</p>
-              <div className="not-prose grid sm:grid-cols-2 gap-4 mt-6">
-                <div className="rounded-xl border bg-blue-50 p-5">
-                  <h3 className="text-base font-semibold text-foreground mb-2">1. Focus on what matters right now</h3>
-                  <p className="text-sm text-muted-foreground">Not everything needs to be optimized at once. Sometimes your priority is exams. Other times: applications. Other times: your health. You can't max everything at the same time.</p>
-                </div>
-                <div className="rounded-xl border bg-blue-50 p-5">
-                  <h3 className="text-base font-semibold text-foreground mb-2">2. Build structure - but keep it flexible</h3>
-                  <p className="text-sm text-muted-foreground">Rigid schedules often fail. A better approach: Plan your day. Expect it to change. Adjust without guilt.</p>
-                </div>
-                <div className="rounded-xl border bg-blue-50 p-5">
-                  <h3 className="text-base font-semibold text-foreground mb-2">3. Let go of "perfect days"</h3>
-                  <p className="text-sm text-muted-foreground">You will have unproductive days, missed workouts, times where you feel off-track. That doesn't mean you're failing.</p>
-                </div>
-                <div className="rounded-xl border bg-blue-50 p-5">
-                  <h3 className="text-base font-semibold text-foreground mb-2">4. Talk to people who are just ahead of you</h3>
-                  <p className="text-sm text-muted-foreground">This is huge. Near-peer mentorship has been shown to improve confidence, reduce stress, and help with decision-making and direction.<sup>6</sup> Because those people remember what it felt like to be where you are. That's what the MedLink Project is built on.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
-        {/* Final advice + CTA + References */}
-        <section className="bg-blue-50">
-          <div className="section-padding">
-            <div className="max-w-4xl mx-auto px-4 prose prose-sm md:prose-base text-muted-foreground">
-              <h2 className="text-2xl font-bold text-foreground mb-4">What I'd Tell You If You Were Sitting Right In Front of Me</h2>
+              <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">1. Focus on what matters right now</h3>
+              <p>
+                Not everything needs to be optimized at once. Sometimes your priority is exams. Other times: applications. Other times: your health. You can't max everything at the same time.
+              </p>
+
+              <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">2. Build structure - but keep it flexible</h3>
+              <p>
+                Rigid schedules often fail. A better approach: Plan your day. Expect it to change. Adjust without guilt.
+              </p>
+
+              <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">3. Let go of "perfect days"</h3>
+              <p>
+                You will have unproductive days, missed workouts, times where you feel off-track. That doesn't mean you're failing.
+              </p>
+
+              <h3 className="text-lg font-semibold text-foreground mt-6 mb-2">4. Talk to people who are just ahead of you</h3>
+              <p>
+                This is huge. Near-peer mentorship has been shown to improve confidence, reduce stress, and help with decision-making and direction.<sup>6</sup>
+              </p>
+              <p>
+                Because those people remember what it felt like to be where you are. That's what the MedLink Project is built on.
+              </p>
+
+              <h2 className="text-2xl font-bold text-foreground mt-10 mb-4">What I'd Tell You If You Were Sitting Right In Front of Me</h2>
               <p>You don't need to:</p>
               <ul className="list-disc pl-5 space-y-1">
                 <li>Have your entire path figured out</li>
@@ -213,23 +222,21 @@ const PreMedGuide = () => {
               </ul>
 
               <h2 className="text-2xl font-bold text-foreground mt-10 mb-4">If You're Feeling Overwhelmed</h2>
-              <p>That feeling of: "I don't know if I'm doing this right" - Almost everyone feels it. Seriously.</p>
+              <p>
+                That feeling of: "I don't know if I'm doing this right" - Almost everyone feels it. Seriously.
+              </p>
               <p>So reach out: To a mentor. To a friend. Through MedLink. Because this process is hard enough, you don't have to do it alone.</p>
 
               <div className="mt-8 text-center">
-                <Link to="/services/mentees" className="inline-block bg-[#007AFF] text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors no-underline">
+                <Link
+                  to="/services/mentees"
+                  className="inline-block bg-[#007AFF] text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors no-underline"
+                >
                   Get Mentored
                 </Link>
               </div>
-            </div>
-          </div>
-        </section>
 
-        {/* References */}
-        <section className="bg-white">
-          <div className="section-padding">
-            <div className="max-w-4xl mx-auto px-4 prose prose-sm md:prose-base text-muted-foreground">
-              <h2 className="text-xl font-bold text-foreground mb-4">References</h2>
+              <h2 className="text-xl font-bold text-foreground mt-12 mb-4">References</h2>
               <ol className="list-decimal pl-5 space-y-2 text-xs text-muted-foreground">
                 <li>Beiter R, Nash R, McCrady M, et al. The prevalence and correlates of depression, anxiety, and stress in a sample of college students. <em>J Affect Disord</em>. 2015;173:90-96.</li>
                 <li>Hill AP, Curran T. Multidimensional perfectionism and burnout: A meta-analysis. <em>Pers Soc Psychol Rev</em>. 2016;20(3):269-288.</li>
