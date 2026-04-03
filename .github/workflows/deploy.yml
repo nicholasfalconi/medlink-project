@@ -1,4 +1,3 @@
-
 name: Deploy to GitHub Pages
 
 on:
@@ -8,22 +7,25 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
+jobs:
+  build:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
           cache: npm
 
       - name: Install dependencies
@@ -32,15 +34,23 @@ jobs:
       - name: Build for production
         run: npm run build
 
-      - name: Copy CNAME & static assets into dist
+      - name: Copy static assets into dist
         run: |
           cp CNAME dist/CNAME
           touch dist/.nojekyll
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          branch: gh-pages
-          folder: dist
-          clean: true
-          token: ${{ secrets.GITHUB_TOKEN }}
+          path: ./dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
