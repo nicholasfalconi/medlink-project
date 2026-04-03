@@ -4,14 +4,16 @@ import { Footer } from "@/components/layout/Footer";
 import ProgramsTable from "@/components/resources/ProgramsTable";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { GraduationCap, Briefcase, Compass } from "lucide-react";
+
 interface Program {
   program: string;
   degree: string;
   school: string;
   length: string;
   structure: string;
-  link?: string; // optional until provided
+  link?: string;
 }
+
 const programs: Program[] = [{
   program: "Medical Physiology",
   degree: "Master of Health Science (MHSc)",
@@ -167,6 +169,7 @@ const programs: Program[] = [{
   structure: "Thesis-based",
   link: "https://www.expmed.ubc.ca/"
 }];
+
 const LifeAfterUndergrad = () => {
   useEffect(() => {
     document.title = "Life after undergrad | MedLink Resources";
@@ -179,22 +182,24 @@ const LifeAfterUndergrad = () => {
     canonical.setAttribute('href', window.location.href);
     document.head.appendChild(canonical);
   }, []);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "Life after undergrad",
+    headline: "Planning for Life after undergrad",
     description: "Options after graduation: grad school, paid work, or gap year - plus curated program list.",
     author: {
-      "@type": "Organization",
-      name: "The MedLink Project"
+      "@type": "Person",
+      name: "Adam Levitan"
     }
   };
-  return <div className="min-h-screen">
+
+  return (
+    <div className="min-h-screen">
       <Navigation />
 
       <main>
         <section className="relative bg-background overflow-hidden">
-          {/* Decorative background graphics */}
           <div aria-hidden className="pointer-events-none absolute inset-0">
             <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-primary/10 blur-3xl" />
             <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-secondary/50 blur-3xl" />
@@ -205,39 +210,37 @@ const LifeAfterUndergrad = () => {
 
           <div className="section-padding">
             <div className="max-w-7xl mx-auto px-4 relative">
-              {/* Breadcrumbs */}
               <Breadcrumb>
                 <BreadcrumbList>
                   <BreadcrumbItem>
-                    
+                    <BreadcrumbLink href="/">Home</BreadcrumbLink>
                   </BreadcrumbItem>
                   <BreadcrumbSeparator />
                   <BreadcrumbItem>
-                    
+                    <BreadcrumbLink href="/resources">Resources</BreadcrumbLink>
                   </BreadcrumbItem>
                   <BreadcrumbSeparator />
                   <BreadcrumbItem>
-                    
+                    <BreadcrumbPage>Life After Undergrad</BreadcrumbPage>
                   </BreadcrumbItem>
                 </BreadcrumbList>
               </Breadcrumb>
 
-              {/* Title */}
               <header className="mt-6 text-center animate-fade-in">
-                <h1 className="text-3xl md:text-5xl font-bold text-foreground">Life after undergrad</h1>
+                <h1 className="text-3xl md:text-5xl font-bold text-foreground">Planning for Life after undergrad</h1>
+                <p className="mt-3 text-sm text-muted-foreground">Written by Adam Levitan &middot; January 25, 2026</p>
               </header>
 
-              {/* 1) Intro section (first, no card background) */}
               <section className="mt-8 mb-10">
-                <div className="max-w-4xl mx-auto">
-                  <p className="text-sm md:text-base leading-7 text-muted-foreground animate-fade-in">
-                    Applying to medical school is challenging, and facing rejection can leave you uncertain about next steps, whether that's exploring gap years, graduate programs, or alternative career paths in healthcare and industry.
+                <div className="max-w-4xl mx-auto prose prose-sm md:prose-base text-muted-foreground">
+                  <p>
+                    Graduating from undergrad can feel like stepping off a treadmill that's been running at full speed. For years, your life was probably structured around assignments, exams, and the next milestone. Then suddenly, it's over. You've crossed the stage, shook the Dean's hand, received your degree, and now you're left wondering what to do next.
                   </p>
-                  <p className="mt-4 text-sm md:text-base leading-7 text-muted-foreground animate-fade-in">
-                    After graduation, the sudden freedom can feel liberating but often leads to a lack of structure, causing some people to become paralyzed by endless possibilities while others overcommit and spread themselves too thin. We advise students to find the sweet spot by reflecting on their goals - whether improving MCAT scores, pursuing research, or earning income - and scaffold their unstructured time with realistic tasks and timelines to stay accountable.
+                  <p className="mt-4">
+                    For students hoping to get into medical school, this phase can be even more complicated. Applications are stressful enough, but rejection, or even uncertainty while waiting, can leave you asking: Now what?
                   </p>
-                  <p className="mt-4 text-sm md:text-base leading-7 text-muted-foreground animate-fade-in">
-                    We've identified three common paths that premeds tend to take after graduation if they don't get into medical school.
+                  <p className="mt-4">
+                    The truth is, there's no single "right" path after undergrad. But there are common experiences many premeds share, so I wrote this blog to help review some of the more common paths.
                   </p>
                 </div>
               </section>
@@ -248,95 +251,99 @@ const LifeAfterUndergrad = () => {
         <section className="bg-muted/50">
           <div className="section-padding">
             <div className="max-w-7xl mx-auto px-4">
-              {/* 2) Cards for the three paths */}
-              <section className="mb-0">
-                <div className="grid md:grid-cols-3 gap-6">
-                  {/* Graduate school */}
-                  <article className="rounded-xl border bg-card p-6 animate-fade-in">
-                    <div className="flex items-center gap-2 mb-2">
-                      <GraduationCap className="h-5 w-5 text-primary" />
-                      <h2 className="text-lg font-semibold text-foreground">Graduate school</h2>
-                    </div>
-                    <ul className="mt-2 list-disc pl-5 text-sm text-muted-foreground space-y-1">
-                      <li>Master's Programs: 1–3 years</li>
-                      <li>Research/thesis-based (usually 2+ years)</li>
-                      <li>Course based (usually 1–2 years)</li>
-                      <li>PhD: 3–7 years, typically 4 or 5</li>
-                    </ul>
-                    <div className="mt-4">
-                      <p className="text-sm font-medium text-foreground">Other important considerations</p>
-                      <ul className="mt-2 list-disc pl-5 text-sm text-muted-foreground space-y-1">
-                        <li>Exit opportunities</li>
-                        <li>Does a supervisor need to be identified before applying?</li>
-                        <li>Do students get paid a stipend? What will the cost of living be?</li>
-                      </ul>
-                    </div>
-                  </article>
+              <h2 className="text-2xl font-semibold text-foreground mb-2">The Challenge of Too Much Freedom</h2>
+              <div className="max-w-4xl prose prose-sm md:prose-base text-muted-foreground mb-8">
+                <p>
+                  It may sound odd at first, but it's normal to feel disoriented after you finish your undergraduate degree. No more assignments, no more waking up for class, it's up to you to organize your time. This may cause some people to feel paralyzed by the endless possibilities. Others go the opposite direction and try to do everything, working full time, volunteering, shadowing, researching, retaking the MCAT - all at once.
+                </p>
+                <p className="mt-4">
+                  Neither extreme is sustainable. The sweet spot lies somewhere in between: reflecting on your personal goals and building a realistic structure around them. Ask yourself:
+                </p>
+                <ul className="mt-3 list-disc pl-5 space-y-1">
+                  <li>Do I really need to improve my MCAT score?</li>
+                  <li>Do I want to earn an income before medical school?</li>
+                  <li>Do I even want to go to medical school?</li>
+                  <li>What specific parts of my application could use improvement?</li>
+                </ul>
+                <p className="mt-4">
+                  Once you've clarified your priorities, you can scaffold your time with achievable goals and timelines. Think of it as replacing the structure undergrad once gave you with one you design for yourself.
+                </p>
+              </div>
 
-                  {/* Paid Work */}
-                  <article className="rounded-xl border bg-card p-6 animate-fade-in">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Briefcase className="h-5 w-5 text-primary" />
-                      <h2 className="text-lg font-semibold text-foreground">Paid Work</h2>
-                    </div>
-                    <ul className="mt-2 list-disc pl-5 text-sm text-muted-foreground space-y-1">
-                      <li>Good for those looking to make money and those who have spent enough time in the classroom</li>
-                      <li>Very competitive - prepare your resume and practice writing cover letters; landing a good position takes patience and persistence</li>
-                    </ul>
-                    <div className="mt-4">
-                      <p className="text-sm font-medium text-foreground">Important considerations</p>
-                      <ul className="mt-2 list-disc pl-5 text-sm text-muted-foreground space-y-1">
-                        <li>Reflect on your values: upward mobility, workplace culture, and work–life balance</li>
-                      </ul>
-                      <p className="text-sm font-medium text-foreground mt-3">Common Employers</p>
-                      <ul className="mt-2 list-disc pl-5 text-sm text-muted-foreground space-y-1">
-                        <li>Advocacy industry (mental health advocacy organizations, health equity companies)</li>
-                        <li>Biotechnology and pharmaceutical companies (entry-level roles include sales, quality control, and R&amp;D)</li>
-                        <li>Consulting</li>
-                      </ul>
-                    </div>
-                  </article>
+              <h2 className="text-2xl font-semibold text-foreground mb-6">Three Common Paths After Graduation</h2>
+              <div className="grid md:grid-cols-3 gap-6 mb-0">
+                <article className="rounded-xl border bg-card p-6 animate-fade-in">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Compass className="h-5 w-5 text-primary" />
+                    <h3 className="text-lg font-semibold text-foreground">The Gap-Year Explorer</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    These students use the time to travel, work, or try something new. Sometimes it's about earning money, other times it's about gaining perspective. Gap years can be a powerful way to recharge, mature, and return to applications with fresh energy.
+                  </p>
+                </article>
 
-                  {/* Gap Year */}
-                  <article className="rounded-xl border bg-card p-6 animate-fade-in">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Compass className="h-5 w-5 text-primary" />
-                      <h2 className="text-lg font-semibold text-foreground">Gap Year</h2>
-                    </div>
-                    <ul className="mt-2 list-disc pl-5 text-sm text-muted-foreground space-y-1">
-                      <li>Good for people looking to improvise while finding the right job or graduate program</li>
-                      <li>It can feel unsettling to improvise and not be working towards a greater purpose - optimistically, you get time to focus on yourself</li>
-                      <li>Explore your interests however your heart desires</li>
-                      <li>Volunteering: contribute to a cause greater than yourself, learn skills, build connections, and discover new career paths</li>
-                    </ul>
-                  </article>
-                </div>
-              </section>
+                <article className="rounded-xl border bg-card p-6 animate-fade-in">
+                  <div className="flex items-center gap-2 mb-2">
+                    <GraduationCap className="h-5 w-5 text-primary" />
+                    <h3 className="text-lg font-semibold text-foreground">The Graduate Student</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    Some pursue master's or post-baccalaureate programs, often with a research or health science focus. These degrees can strengthen academic records, provide valuable research experience, and expand career options - whether or not medical school works out.
+                  </p>
+                </article>
+
+                <article className="rounded-xl border bg-card p-6 animate-fade-in">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Briefcase className="h-5 w-5 text-primary" />
+                    <h3 className="text-lg font-semibold text-foreground">The Career Builder</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    Others find roles in healthcare, public health, or industry. Positions as research coordinators, medical scribes, or health policy analysts can offer hands-on exposure to medicine while building transferable skills and income stability.
+                  </p>
+                </article>
+              </div>
             </div>
           </div>
         </section>
 
-        <section id="programs" className="bg-background">
+        <section className="bg-background">
+          <div className="section-padding">
+            <div className="max-w-4xl mx-auto px-4">
+              <h2 className="text-2xl font-semibold text-foreground mb-4">Moving Forward</h2>
+              <div className="prose prose-sm md:prose-base text-muted-foreground">
+                <p>
+                  If you're standing at this crossroads, remember: rejection or delay doesn't mean the door to medicine is closed. Many physicians took detours before finding their way into medical school. What matters is that you use this time intentionally - whether that means doubling down on your application, exploring other fields, or simply giving yourself space to grow.
+                </p>
+                <p className="mt-4">
+                  Life after undergrad isn't a race. It's a transition, and like any transition, it can be messy, exciting, frustrating, and full of possibility. Wherever you land, you're still moving forward.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="programs" className="bg-muted/50">
           <div className="section-padding">
             <div className="max-w-7xl mx-auto px-4">
-{/* 3) Curated programs table */}
-<h2 className="text-2xl font-semibold text-foreground text-center">Curated Canadian programs</h2>
-<p className="text-sm text-muted-foreground mt-2 text-center">Note: This guide is not comprehensive; always perform your own research. *Most internships are paid.</p>
+              <h2 className="text-2xl font-semibold text-foreground text-center">Curated Canadian programs</h2>
+              <p className="text-sm text-muted-foreground mt-2 text-center">Note: This guide is not comprehensive; always perform your own research. *Most internships are paid.</p>
 
-<ProgramsTable programs={programs} />
+              <ProgramsTable programs={programs} />
 
-<script
-  type="application/ld+json"
-  dangerouslySetInnerHTML={{
-    __html: JSON.stringify(jsonLd),
-  }}
-/>
+              <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                  __html: JSON.stringify(jsonLd),
+                }}
+              />
             </div>
           </div>
         </section>
       </main>
 
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default LifeAfterUndergrad;

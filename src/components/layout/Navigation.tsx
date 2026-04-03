@@ -11,6 +11,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
 
@@ -27,10 +28,32 @@ export const Navigation = () => {
       <Link to="/" className="text-sm font-medium tracking-wide hover:text-[#007AFF] transition-colors">
         Home
       </Link>
-      <Link to="/about" className="text-sm font-medium tracking-wide hover:text-[#007AFF] transition-colors">
-        About Us
-      </Link>
-      <Collapsible open={isServicesOpen} onOpenChange={setIsServicesOpen} className="relative">
+      <Collapsible open={isAboutOpen} onOpenChange={(open) => { setIsAboutOpen(open); if (open) { setIsServicesOpen(false); setIsResourcesOpen(false); } }} className="relative">
+        <CollapsibleTrigger className="text-sm font-medium tracking-wide hover:text-[#007AFF] transition-colors flex items-center gap-1">
+          About Us <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isAboutOpen ? 'rotate-180' : ''}`} />
+        </CollapsibleTrigger>
+        <CollapsibleContent className="absolute z-50 top-full left-0 w-64 bg-white rounded-md shadow-lg py-2 mt-2">
+          <Link
+            to="/about"
+            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#007AFF] transition-colors"
+          >
+            About the MedLink Project
+          </Link>
+          <Link
+            to="/about/our-story"
+            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#007AFF] transition-colors"
+          >
+            Our Story
+          </Link>
+          <Link
+            to="/about/team"
+            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#007AFF] transition-colors"
+          >
+            Meet the Team
+          </Link>
+        </CollapsibleContent>
+      </Collapsible>
+      <Collapsible open={isServicesOpen} onOpenChange={(open) => { setIsServicesOpen(open); if (open) { setIsAboutOpen(false); setIsResourcesOpen(false); } }} className="relative">
         <CollapsibleTrigger className="text-sm font-medium tracking-wide hover:text-[#007AFF] transition-colors flex items-center gap-1">
           Services <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
         </CollapsibleTrigger>
@@ -50,7 +73,7 @@ export const Navigation = () => {
         </CollapsibleContent>
       </Collapsible>
 
-      <Collapsible open={isResourcesOpen} onOpenChange={setIsResourcesOpen} className="relative">
+      <Collapsible open={isResourcesOpen} onOpenChange={(open) => { setIsResourcesOpen(open); if (open) { setIsAboutOpen(false); setIsServicesOpen(false); } }} className="relative">
         <CollapsibleTrigger className="text-sm font-medium tracking-wide hover:text-[#007AFF] transition-colors flex items-center gap-1">
           Resources <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isResourcesOpen ? 'rotate-180' : ''}`} />
         </CollapsibleTrigger>
@@ -59,13 +82,25 @@ export const Navigation = () => {
             to="/resources" 
             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#007AFF] transition-colors"
           >
-            All Resources
+            All Blogs
           </Link>
-          <Link 
-            to="/resources/life-after-undergrad" 
+          <Link
+            to="/resources/life-after-undergrad"
             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#007AFF] transition-colors"
           >
             Life After Undergrad
+          </Link>
+          <Link
+            to="/resources/mcat-prep"
+            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#007AFF] transition-colors"
+          >
+            MCAT Prep Guide
+          </Link>
+          <Link
+            to="/resources/pre-med-guide"
+            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#007AFF] transition-colors"
+          >
+            Pre-Med Guide
           </Link>
         </CollapsibleContent>
       </Collapsible>

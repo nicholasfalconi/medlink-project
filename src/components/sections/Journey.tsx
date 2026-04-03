@@ -17,6 +17,11 @@ const timeline = [
     title: "200+ Mentees",
     description: "Reached a major milestone in student support",
   },
+  {
+    year: "2026",
+    title: "300+ Mentees",
+    description: "Continued growth and expanded reach across Canada",
+  },
 ];
 
 export const Journey = () => {

@@ -1,7 +1,7 @@
 
 export const About = () => {
   const stats = [
-    { value: "200+", label: "Students Mentored" },
+    { value: "300+", label: "Students Mentored" },
     { value: "50+", label: "Medical Student Mentors" },
     { value: "100%", label: "Free Access" }
   ];

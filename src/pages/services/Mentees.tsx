@@ -20,9 +20,11 @@ const ServicesMentees = () => {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4">
           <iframe
-            src="https://forms.gle/ttUJVP84rCVLHd7H7"
-            className="w-full h-[800px] border-0"
+            src="https://docs.google.com/forms/d/e/1FAIpQLSc-CzI10pVz56Px1hA9FtHDf2dQeeNGkv6PFZzANLa-PnEGyA/viewform?embedded=true"
+            className="w-full border-0 rounded-lg shadow-sm"
+            style={{ minHeight: "2400px" }}
             title="Mentee Application Form"
+            loading="lazy"
           />
         </div>
       </section>
